@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.model.DBHelper;
+import com.utils.DBHelper;
 
 public class HelloDao {
 	

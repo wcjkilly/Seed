@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0px;
+	padding:0px;
+	font-size:16px;
+	font-family:"Microsoft YaHei UI";
+}
+body {
+	overflow: hidden;
+	position:relative;
+}
+a{
+	text-decoration: none;
+}
+h1{
+	font-size:28px;
+	color:#4DE6F7;
+	font-weight:bolder;
+	margin-bottom:60px;
+}
+label{
+	color:#DDD;
+}
+.user input{
+	width:230px;
+	height:30px;
+	border-radius:5px;
+	margin-bottom:30px;
+}
+.logincontent {
+	width: 300px;
+	margin-top: 175px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	position:absolute;
+	top:10%;
+	left:40%;
+}
+.logincontent .btnlogin {
+	color: #FFF;
+	background-color: #00bbea;
+	display: block;
+	height: 35px;
+	width: 290px;
+	padding-top:5px;
+	font-size:20px;
+	margin-top:35px;
+	float:right;
+	margin-right:5px;
+}
+.logincontent .logbox {
+	float: right;
+	margin-right:10px;
+}
+
+small{
+	font-style: normal;
+	color: #ff6f58;
+	font-size:13px;	
+}
