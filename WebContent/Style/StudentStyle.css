@@ -90,8 +90,8 @@ body{font-size:12px; line-height:22px;color:#333;}
 .morebt ul li{float:left; margin-right:8px;cursor:pointer; line-height:35px;height:35px; }
 .morebt ul li a{text-align:center; display:block; padding:0 15px;}
 .morebt ul li a:hover{color:#fff;}
-.tab1{background:#fff url(../images/Student/default/bgnav.jpg) repeat-x;  font-weight:700;overflow:hidden;border:1px #1573b4 solid;border-bottom:none; position:relative; bottom:-1px; font-size:14px;color:#fff;}
-.tab2{background:#f4fbff url(../images/Student/default/bg_nav2.jpg) repeat-x bottom;border:1px #bed9f0 solid;border-bottom:none;   font-size:14px;color:#0561a2; height:32px; overflow:hidden;}
+.tab1{background:#fff url(../Images/Student/default/bgnav.jpg) repeat-x;  font-weight:700;overflow:hidden;border:1px #1573b4 solid;border-bottom:none; position:relative; bottom:-1px; font-size:14px;color:#fff;}
+.tab2{background:#f4fbff url(../Images/Student/default/bg_nav2.jpg) repeat-x bottom;border:1px #bed9f0 solid;border-bottom:none;   font-size:14px;color:#0561a2; height:32px; overflow:hidden;}
 .acc_data{padding:20px 0;}
 .table_style{width:90%; margin:0 auto;}
 .table_style td{padding:5px;}
