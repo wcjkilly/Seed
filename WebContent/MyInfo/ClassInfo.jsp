@@ -81,7 +81,7 @@
 
 </div>
 <div class="cztable">
-    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <table border="0" cellspacing="0" cellpadding="0" width="100%" >
         <tr>
             <td width="91" align="right">班级名称：</td>
             <td colspan="5">Web132班&nbsp;</td>

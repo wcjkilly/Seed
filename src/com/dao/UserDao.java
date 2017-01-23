@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.model.ClassInfo;
 import com.model.Student;
 import com.utils.DBHelper;
 
@@ -16,6 +17,7 @@ public class UserDao {
 	//TODO 实例化数据库连接或其他实例
 	private Connection conn = DBHelper.getInitJDBCUtil().getConnection();
 	private Student student = new Student();
+	private ClassInfo classinfo = new ClassInfo();
 	public Student login(String username, String password) {
 		//TODO 数据库检查该用户名密码是否是合法用户登录
 		Statement st;
@@ -25,7 +27,7 @@ public class UserDao {
 			ResultSet rs = st.executeQuery("SELECT * FROM UserInfo where username='"+username+"' "
 					+ "and passwd='"+password+"'");
 			while (rs.next()) {				
-				return getInfo(rs);
+				return setStuInfo(rs);
 			}
 			rs.close();
 			st.close();
@@ -45,7 +47,7 @@ public class UserDao {
 		return true;
 	}
 	
-	public Student getInfo(ResultSet rs){
+	private Student setStuInfo(ResultSet rs){
 		//Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -67,6 +69,41 @@ public class UserDao {
 		}
 		
 		return null;
+	}
+
+	public ClassInfo searchClass(String username) {
+		// TODO Auto-generated method stub
+		Statement st;
+		ResultSet rs;
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery("select * from classinfo where classid "
+					+ "=(select classid from userinfo where userinfo.username='"+username+"')");
+			while (rs.next()) {				
+				return setClassInfo(rs);				
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	    return null;
+	}
+
+	private ClassInfo setClassInfo(ResultSet rs) throws NumberFormatException, SQLException {
+		// TODO Auto-generated method stub
+		classinfo.setClass_(rs.getString("class"));
+		classinfo.setClassflag(rs.getString("classflag"));
+		classinfo.setClassid(Integer.valueOf(rs.getString("clasid")));
+		classinfo.setClassqq(rs.getString("classqq"));
+		classinfo.setEvaluate(Integer.valueOf(rs.getString("evaluate")));
+		classinfo.setFteacher(rs.getString("fteacher"));
+		classinfo.setSchool(rs.getString("school"));
+		classinfo.setTalktime(rs.getString("talktime"));
+		classinfo.setTel(rs.getString("tel"));
+		return classinfo;
 	}
 
 }

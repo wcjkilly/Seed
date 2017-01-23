@@ -47,6 +47,7 @@ public class UserAction extends ActionSupport {
 	@Action(value = "userLogin", results = {
 			@Result(name = "success", location = "/homepage.jsp"),
 			@Result(name = "login", location = "/login.jsp") })
+	
 	public String login() {
 		System.out.println("用户登录："+getUsername());
 		//TODO 判断登录是否合法

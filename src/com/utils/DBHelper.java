@@ -39,7 +39,7 @@ public class DBHelper {
 	    public Connection getConnection() {
 	       if(conn==null){
 	    	   try {
-		            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/mydb","postgres", "123456");
+		            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "123456");
 		        } catch (SQLException e) {
 		            e.printStackTrace();
 		        }
