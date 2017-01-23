@@ -116,8 +116,8 @@
                         </div>
                     </div>
                     <div class="cdlist">
-                        <div><a href="MyInfo/Index.jsp" target="contentshow">我的信息</a></div>
-                        <div><a href="MyInfo/ClassInfo.jsp" target="contentshow">班级信息 </a>
+                        <div><a href="userInfo.action" target="contentshow">我的信息</a></div>
+                        <div><a href="userClassInfo.action" target="contentshow">班级信息 </a>
                         </div>
                         <div><a href="EducationCenter/Score.jsp" target="contentshow">个人成绩</a></div>
                         <div><a href="MyInfo/attendence.jsp" target="contentshow">个人考勤</a></div>
@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="rightbox animated zoomIn">
-                <iframe src="MyInfo/Index.jsp" id="contentshow" name="contentshow" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;height:100%">	
+                <iframe src="userInfo.action" id="contentshow" name="contentshow" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;height:100%">	
         </iframe>
             </div>
         </div>

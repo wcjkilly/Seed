@@ -5,6 +5,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 
+import com.model.ClassInfo;
 import com.model.Student;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -50,24 +51,41 @@ public class UserAction extends ActionSupport {
 	
 	public String login() {
 		System.out.println("用户登录："+getUsername());
-		//TODO 判断登录是否合法
-		Student student = userService.login(getUsername(), getPassword());
-		if (student!=null) {
-			ActionContext.getContext().getSession().put("user",getUsername());
-			ActionContext.getContext().getSession().put("cardid",student.getCardid());
-			ActionContext.getContext().getSession().put("sid",student.getSid());
-			ActionContext.getContext().getSession().put("major",student.getMajor());
-			ActionContext.getContext().getSession().put("sex",student.getSex());
-			ActionContext.getContext().getSession().put("class_",student.getClass_());
-			ActionContext.getContext().getSession().put("position",student.getPosition());
-			ActionContext.getContext().getSession().put("timeToSch",student.getTimeToSch());
-			ActionContext.getContext().getSession().put("address",student.getAddress());
-			ActionContext.getContext().getSession().put("tel",student.getTel());
-			ActionContext.getContext().getSession().put("qq",student.getQq());
+		//判断登录是否合法
+		Boolean result = userService.login(getUsername(), getPassword());
+		if (result) {
+			//session写入用于唯一标识，通常还需要加密
+			ActionContext.getContext().getSession().put("username",getUsername());
 			return SUCCESS;
 		} else {
 			setMsg("用户名或密码不正确");
 			return LOGIN;
 		}
+	}
+	
+	@Action(value = "userInfo", results = {
+			@Result(name = "success", location = "/MyInfo/Index.jsp") })
+	
+	public String userInfo() {
+		String username = (String) ActionContext.getContext().getSession().get("username");
+		Student student = userService.getUserInfo(username);
+		
+		ActionContext.getContext().put("user",student);
+		
+		return SUCCESS;
+		
+	}
+	
+	@Action(value = "userClassInfo", results = {
+			@Result(name = "success", location = "/MyInfo/ClassInfo.jsp") })
+	
+	public String userClassInfo() {
+		String username = (String) ActionContext.getContext().getSession().get("username");
+		ClassInfo classInfo = userService.searchClass(username);
+		
+		ActionContext.getContext().put("classInfo",classInfo);
+		
+		return SUCCESS;
+		
 	}
 }

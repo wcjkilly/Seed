@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
 	学生信息管理平台
-</title><link href="../Style/StudentStyle.css" rel="stylesheet" type="text/css" /><link href="../Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" /><link href="../Style/ks.css" rel="stylesheet" type="text/css" />
-    <script src="../Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
-    <script src="../Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
-    <script src="../Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
-    <script src="../Script/Common.js" type="text/javascript"></script>
-    <script src="../Script/Data.js" type="text/javascript"></script>
+</title><link href="Style/StudentStyle.css" rel="stylesheet" type="text/css" /><link href="Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" /><link href="Style/ks.css" rel="stylesheet" type="text/css" />
+    <script src="Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
+    <script src="Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
+    <script src="Script/Common.js" type="text/javascript"></script>
+    <script src="Script/Data.js" type="text/javascript"></script>
     <script type="text/javascript">
         $().ready(function () {
             setStudMsgHeadTabCheck();
@@ -71,8 +71,8 @@
     
 
 <ul id="ulStudMsgHeadTab">
-    <li><a class="tab2" onclick="" href="Index.jsp">我的信息</a> </li>
-    <li><a class="tab2" onclick="" href="ClassInfo.jsp">班级信息</a></li>
+    <li><a class="tab2" onclick="" href="userInfo.action">我的信息</a> </li>
+    <li><a class="tab2" onclick="" href="userClassInfo.action"">班级信息</a></li>
     <li><a class="tab2" onclick="" href="../EducationCenter/Score.jsp">个人成绩</a></li>
     <li><a class="tab2" onclick="" href="attendence.jsp">个人考勤</a></li>
     <li><a class="tab2" onclick="" href="../User/StudentInfor/systemMsge.jsp">我的通知<span style="color:#ff0000; padding-left:5px;" id="unreadSysMsgCount"></span></a></li>
@@ -84,26 +84,26 @@
     <table border="0" cellspacing="0" cellpadding="0" width="100%" >
         <tr>
             <td width="91" align="right">班级名称：</td>
-            <td colspan="5">Web132班&nbsp;</td>
+            <td colspan="5">${classInfo.class_}&nbsp;</td>
         </tr>
         <tr>
             <td align="right">班级QQ群：</td>
-            <td colspan="5">13256456 &nbsp;</td>
+            <td colspan="5">${classInfo.classqq}&nbsp;</td>
         </tr>
         <tr>
             <td align="right">班级宣传语：</td>
-            <td colspan="5">&nbsp;</td>
+            <td colspan="5">${classInfo.classflag}&nbsp;</td>
         </tr>
         <tr>
             <td align="right">学校名称：</td>
-            <td colspan="5">南昌大学&nbsp;</td>
+            <td colspan="5">${classInfo.school}&nbsp;</td>
         </tr>
             
             <tr>
                     <td align="right"><div align="right">辅导员老师：</div>&nbsp;</td>
-                    <td><div align="left">李秋英</div></td>
+                    <td><div align="left">${classInfo.fteacher}</div></td>
                     <td><div align="right">电话：</div>&nbsp;</td>
-                    <td><div align="left">15388088011</div>&nbsp;</td>
+                    <td><div align="left">${classInfo.tel}</div>&nbsp;</td>
                     <td align="right"><div align="right">在线交流：</div>&nbsp;</td>
                     <td align="right"><div align="left"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2::41" alt="点击这里给我发消息" /></a></div>&nbsp;</td>
                   </tr>

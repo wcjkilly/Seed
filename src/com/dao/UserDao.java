@@ -18,14 +18,30 @@ public class UserDao {
 	private Connection conn = DBHelper.getInitJDBCUtil().getConnection();
 	private Student student = new Student();
 	private ClassInfo classinfo = new ClassInfo();
-	public Student login(String username, String password) {
+	public Boolean login(String username, String password) {
 		//TODO 数据库检查该用户名密码是否是合法用户登录
 		Statement st;
-		//String username_ = "";
 		try {
 			st = conn.createStatement();
 			ResultSet rs = st.executeQuery("SELECT * FROM UserInfo where username='"+username+"' "
 					+ "and passwd='"+password+"'");
+			if (rs.next()) {				
+				return true;
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Student getUserInfo(String username) {
+		Statement st;
+		try {
+			st = conn.createStatement();
+			ResultSet rs = st.executeQuery("SELECT * FROM UserInfo where username='"+username+"'");
 			while (rs.next()) {				
 				return setStuInfo(rs);
 			}
