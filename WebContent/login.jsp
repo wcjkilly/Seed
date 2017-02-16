@@ -16,7 +16,7 @@
 	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
     <div class="logincontent">
         <h1>南昌大学教务管理系统</h1>
-        <span style="color:red;">${msg}</span>
+        <span style="color:red;">&nbsp;${msg}&nbsp;</span>
         <form action="userLogin.action" method="post">
             <div class="user">
                 <label for="username">账号：</label>
