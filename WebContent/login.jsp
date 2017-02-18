@@ -17,7 +17,7 @@
     <div class="logincontent">
         <h1>南昌大学教务管理系统</h1>
         <span style="color:red;">&nbsp;${msg}&nbsp;</span>
-        <form action="userLogin.action" method="post">
+        <form action="${pageContext.request.contextPath}/userLogin.action" method="post">
             <div class="user">
                 <label for="username">账号：</label>
                 <input type="text" id="username" name="username" value="${username}"><br>

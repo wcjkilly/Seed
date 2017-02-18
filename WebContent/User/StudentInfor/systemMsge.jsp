@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
 	学生信息管理平台
-</title><link href="../../Style/StudentStyle.css" rel="stylesheet" type="text/css" /><link href="../../Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" /><link href="../../Style/ks.css" rel="stylesheet" type="text/css" />
-    <script src="../../Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
-    <script src="../../Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
-    <script src="../../Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
-    <script src="../../Script/Common.js" type="text/javascript"></script>
-    <script src="../../Script/Data.js" type="text/javascript"></script>
+</title><link href="Style/StudentStyle.css" rel="stylesheet" type="text/css" /><link href="../../Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" /><link href="../../Style/ks.css" rel="stylesheet" type="text/css" />
+    <script src="Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
+    <script src="Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
+    <script src="Script/Common.js" type="text/javascript"></script>
+    <script src="Script/Data.js" type="text/javascript"></script>
     <script type="text/javascript">
         $().ready(function () {
             setStudMsgHeadTabCheck();
@@ -110,12 +110,12 @@
     
 
 <ul id="ulStudMsgHeadTab">
-    <li><a class="tab2" onclick="" href="../../MyInfo/Index.jsp">我的信息</a> </li>
-    <li><a class="tab2" onclick="" href="../../MyInfo/ClassInfo.jsp">班级信息</a></li>
-    <li><a class="tab2" onclick="" href="../../EducationCenter/Score.jsp">个人成绩</a></li>
-    <li><a class="tab2" onclick="" href="../../MyInfo/attendence.jsp">个人考勤</a></li>
-    <li><a class="tab2" onclick="" href="systemMsge.jsp">我的通知<span style="color:#ff0000; padding-left:5px;" id="unreadSysMsgCount"></span></a></li>
-    <li><a class="tab2" onclick="" href="Letter.jsp">在线提问</a></li>
+    <li><a class="tab2" onclick="" href="userInfo.actionp">我的信息</a> </li>
+    <li><a class="tab2" onclick="" href="userClassInfo.action">班级信息</a></li>
+    <li><a class="tab2" onclick="" href="educationCenter.action">个人成绩</a></li>
+    <li><a class="tab2" onclick="" href="attendence.action">个人考勤</a></li>
+    <li><a class="tab2" onclick="" href="systemMsge.action">我的通知<span style="color:#ff0000; padding-left:5px;" id="unreadSysMsgCount"></span></a></li>
+    <li><a class="tab2" onclick="" href="letter.action">在线提问</a></li>
 </ul>
 
 </div>

@@ -119,10 +119,10 @@
                         <div><a href="userInfo.action" target="contentshow">我的信息</a></div>
                         <div><a href="userClassInfo.action" target="contentshow">班级信息 </a>
                         </div>
-                        <div><a href="EducationCenter/Score.jsp" target="contentshow">个人成绩</a></div>
-                        <div><a href="MyInfo/attendence.jsp" target="contentshow">个人考勤</a></div>
-                        <div><a href="User/StudentInfor/systemMsge.jsp" target="contentshow">我的通知</a></div>
-                        <div><a href="User/StudentInfor/Letter.jsp" target="contentshow">在线提问</a></div>
+                        <div><a href="educationCenter.action" target="contentshow">个人成绩</a></div>
+                        <div><a href="attendence.action" target="contentshow">个人考勤</a></div>
+                        <div><a href="systemMsge.action" target="contentshow">我的通知</a></div>
+                        <div><a href="letter.action" target="contentshow">在线提问</a></div>
                     </div>
                     <div class="ta1">
                         <strong>班级中心</strong>
@@ -131,13 +131,13 @@
                     </div>
                     <div class="cdlist">
                         <div>
-                            <a href="EducationCenter/Book.jsp" target="contentshow">班级课程表</a></div>
+                            <a href="book.action" target="contentshow">班级课程表</a></div>
                         <div>
-                            <a href="EducationCenter/classfare.jsp" target="contentshow">班级班费</a></div>
+                            <a href="classfare.action" target="contentshow">班级班费</a></div>
                         <div>
-                            <a href="EducationCenter/vote.jsp" target="contentshow">投票</a></div>
+                            <a href="vote.action" target="contentshow">投票</a></div>
                         <div>
-                            <a href="EducationCenter/group.jsp" target="contentshow">小组</a></div>
+                            <a href="group.action" target="contentshow">小组</a></div>
                     </div>
                     <div class="ta1">
                         <strong>学习中心</strong><div class="leftbgbt2">
@@ -145,9 +145,9 @@
                     </div>
                     <div class="cdlist">
                         <div>
-                            <a href="OnlineTeaching/StudentMaterial.jsp" target="contentshow">资料下载</a></div>
+                            <a href="studentMaterial.action" target="contentshow">资料下载</a></div>
                         <div>
-                            <a href="OnlineTeaching/StudentStudyRecordList.jsp" target="contentshow">资料上传</a></div>
+                            <a href="studentStudyRecordList.action" target="contentshow">资料上传</a></div>
                     </div> 
                 </div>
             </div>

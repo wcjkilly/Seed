@@ -60,10 +60,10 @@
 <ul id="ulStudMsgHeadTab">
     <li><a class="tab2" onclick="" href="userInfo.action">我的信息</a> </li>
     <li><a class="tab2" onclick="" href="userClassInfo.action">班级信息</a></li>
-    <li><a class="tab2" onclick="" href="../EducationCenter/Score.jsp">个人成绩</a></li>
-    <li><a class="tab2" onclick="" href="attendence.jsp">个人考勤</a></li>
-    <li><a class="tab2" onclick="" href="../User/StudentInfor/systemMsge.jsp">我的通知<span style="color:#ff0000; padding-left:5px;" id="unreadSysMsgCount"></span></a></li>
-    <li><a class="tab2" onclick="" href="../User/StudentInfor/Letter.jsp">在线提问</a></li>
+    <li><a class="tab2" onclick="" href="educationCenter.action">个人成绩</a></li>
+    <li><a class="tab2" onclick="" href="attendence.action">个人考勤</a></li>
+    <li><a class="tab2" onclick="" href="systemMsge.action">我的通知<span style="color:#ff0000; padding-left:5px;" id="unreadSysMsgCount"></span></a></li>
+    <li><a class="tab2" onclick="" href="Letter.action">在线提问</a></li>
 </ul>
 
 </div>

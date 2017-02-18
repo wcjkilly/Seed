@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
 	学生信息管理平台
-</title><link href="../Style/StudentStyle.css" rel="stylesheet" type="text/css" /><link href="../Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" /><link href="../Style/ks.css" rel="stylesheet" type="text/css" />
-    <script src="../Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
-    <script src="../Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
-    <script src="../Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
-    <script src="../Script/Common.js" type="text/javascript"></script>
-    <script src="../Script/Data.js" type="text/javascript"></script>
+</title><link href="Style/StudentStyle.css" rel="stylesheet" type="text/css" /><link href="../Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" /><link href="../Style/ks.css" rel="stylesheet" type="text/css" />
+    <script src="Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
+    <script src="Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
+    <script src="Script/Common.js" type="text/javascript"></script>
+    <script src="Script/Data.js" type="text/javascript"></script>
     <script type="text/javascript">
         $().ready(function () {
             setStudMsgHeadTabCheck();
@@ -35,10 +35,10 @@
         班级中心 &gt; 班级班费</h2>
     <div class="morebt">
         <ul>
-            <li><a class="tab2" href="Book.jsp">班级课程表</a></li>
-            <li><a class="tab1" href="classfare.jsp">班级班费</a></li>
-            <li><a class="tab2" href="vote.jsp">投票</a></li>
-            <li><a class="tab2" href="group.jsp">小组</a></li>
+            <li><a class="tab2" href="book.action">班级课程表</a></li>
+            <li><a class="tab1" href="classfare.action">班级班费</a></li>
+            <li><a class="tab2" href="vote.action">投票</a></li>
+            <li><a class="tab2" href="group.action">小组</a></li>
         </ul>
     </div>
     <div class="cztable">

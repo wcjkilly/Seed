@@ -1,4 +1,4 @@
-package com.dao;
+ package com.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -112,7 +112,7 @@ public class UserDao {
 		// TODO Auto-generated method stub
 		classinfo.setClass_(rs.getString("class"));
 		classinfo.setClassflag(rs.getString("classflag"));
-		classinfo.setClassid(Integer.valueOf(rs.getString("clasid")));
+		classinfo.setClassid(Integer.valueOf(rs.getString("classid")));
 		classinfo.setClassqq(rs.getString("classqq"));
 		classinfo.setEvaluate(Integer.valueOf(rs.getString("evaluate")));
 		classinfo.setFteacher(rs.getString("fteacher"));

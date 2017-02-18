@@ -88,4 +88,50 @@ public class UserAction extends ActionSupport {
 		return SUCCESS;
 		
 	}
+	
+	
+	@Action(value = "educationCenter", results = {
+			@Result(name = "success", location = "/EducationCenter/Score.jsp") })
+	
+	public String educationCenter() {
+		
+		
+		
+		return SUCCESS;
+		
+	}
+	
+	@Action(value = "attendence", results = {
+			@Result(name = "success", location = "/MyInfo/attendence.jsp") })
+	
+	public String attendence() {
+		
+		
+		
+		return SUCCESS;
+		
+	}
+	
+	@Action(value = "systemMsge", results = {
+			@Result(name = "success", location = "/User/StudentInfor/systemMsge.jsp") })
+	
+	public String systemMsge() {
+		
+		
+		
+		return SUCCESS;
+		
+	}
+	@Action(value = "letter", results = {
+			@Result(name = "success", location = "/User/StudentInfor/Letter.jsp") })
+	
+	public String Letter() {
+		
+		
+		
+		return SUCCESS;
+		
+	}
+	
+	
 }
