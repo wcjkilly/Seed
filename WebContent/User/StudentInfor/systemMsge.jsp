@@ -110,7 +110,7 @@
     
 
 <ul id="ulStudMsgHeadTab">
-    <li><a class="tab2" onclick="" href="userInfo.actionp">我的信息</a> </li>
+    <li><a class="tab2" onclick="" href="userInfo.action">我的信息</a> </li>
     <li><a class="tab2" onclick="" href="userClassInfo.action">班级信息</a></li>
     <li><a class="tab2" onclick="" href="educationCenter.action">个人成绩</a></li>
     <li><a class="tab2" onclick="" href="attendence.action">个人考勤</a></li>

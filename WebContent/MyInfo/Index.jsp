@@ -63,7 +63,7 @@
     <li><a class="tab2" onclick="" href="educationCenter.action">个人成绩</a></li>
     <li><a class="tab2" onclick="" href="attendence.action">个人考勤</a></li>
     <li><a class="tab2" onclick="" href="systemMsge.action">我的通知<span style="color:#ff0000; padding-left:5px;" id="unreadSysMsgCount"></span></a></li>
-    <li><a class="tab2" onclick="" href="Letter.action">在线提问</a></li>
+    <li><a class="tab2" onclick="" href="letter.action">在线提问</a></li>
 </ul>
 
 </div>
