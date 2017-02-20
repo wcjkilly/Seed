@@ -10,77 +10,6 @@
     <script src="Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
     <script src="Script/Common.js" type="text/javascript"></script>
     <script src="Script/Data.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $().ready(function () {
-            setStudMsgHeadTabCheck();
-            showUnreadSysMsgCount();
-        });
-
-        //我的信息头部选项卡
-        function setStudMsgHeadTabCheck() {
-            var currentUrl = window.location.href;
-            currentUrl = currentUrl.toLowerCase();
-            var asmhm = "";
-            $("#ulStudMsgHeadTab li").each(function () {
-                asmhm = $(this).find('a').attr("href").toLowerCase();
-                if (currentUrl.indexOf(asmhm) > 0) {
-                    $(this).find('a').attr("class", "tab1");
-                    return;
-                }
-            });
-        }
-
-        //显示未读系统信息
-        function showUnreadSysMsgCount() {
-            var unreadSysMsgCount = "0";
-            if (Number(unreadSysMsgCount) > 0) {
-                $("#unreadSysMsgCount").html("(" + unreadSysMsgCount + ")");
-            }
-        }
-
-        //退出
-        function loginOut() {
-            if (confirm("确定退出吗？")) {
-                StudentLogin.loginOut(function (data) {
-                    if (data == "true") {
-                        window.location = "/Login.aspx";
-                    }
-                    else {
-                        jBox.alert("退出失败！", "提示", new { buttons: { "确定": true} });
-                    }
-                });
-            }
-        }
-        //更改报考类别
-        function changeCateory(thisObj, id) {
-            var oldCateoryId = $("#cateoryId").val();
-            var cateoryId = "";
-            if (id != null) {
-                cateoryId = id;
-            }
-            else {
-                cateoryId = thisObj.val();
-            }
-            var studentId = $("#studentId").val();
-            if (cateoryId.length <= 0) {
-                jBox.tip("报考类别不能为空！");
-                if (id == null) {
-                    thisObj.val(oldCateoryId);
-                }
-            }
-            else {
-                studentInfo.changeStudentCateory(cateoryId, function (data) {
-                    var result = $.parseJSON(data);
-                    if ((String(result.ok) == "true")) {
-                        window.location.href = "/Index.aspx";
-                    }
-                    else {
-                        jBox.tip(result.message);
-                    }
-                });
-            }
-        }
-    </script>
     
     <script src="Script/Common.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -114,7 +43,7 @@
 </head>
 <body>
     <h2 class="mbx">
-        学习中心 &gt; <a href="#">资料下载</a></h2>
+        学习中心 &gt; 资料下载</h2>
     <div class="feilei">
         <a href="#"><strong>资料中心</strong></a></div>
     <input type="hidden" id="cValue" value="" />

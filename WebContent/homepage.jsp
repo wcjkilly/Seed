@@ -98,7 +98,7 @@
                     </a>
                 </div>
                 <div class="topxx">
-                    910513201419学员：${user}，欢迎您！ <a href="MyInfo/Index.jsp" target="contentshow">我的信息</a> <a href="User/StudentInfor/systemMsge.jsp" target="contentshow">
+                    	学员：${ sessionScope.username }，欢迎您！ <a href="userInfo.action" target="contentshow">我的信息</a> <a href="systemMsge.action" target="contentshow">
                         通知</a> <a href="User/Account/ChangePasswd.jsp" target="contentshow">密码修改</a> <a onclick="loginOut()"
                             href="login.jsp">安全退出</a>
                 </div>
@@ -117,8 +117,7 @@
                     </div>
                     <div class="cdlist">
                         <div><a href="userInfo.action" target="contentshow">我的信息</a></div>
-                        <div><a href="userClassInfo.action" target="contentshow">班级信息 </a>
-                        </div>
+                        <div><a href="userClassInfo.action" target="contentshow">班级信息 </a></div>
                         <div><a href="educationCenter.action" target="contentshow">个人成绩</a></div>
                         <div><a href="attendence.action" target="contentshow">个人考勤</a></div>
                         <div><a href="systemMsge.action" target="contentshow">我的通知</a></div>

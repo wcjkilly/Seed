@@ -8,42 +8,17 @@
     <script src="Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
     <script src="Script/Common.js" type="text/javascript"></script>
     <script src="Script/Data.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $().ready(function () {
-            setStudMsgHeadTabCheck();
-        });
-
-        //我的信息头部选项卡
-        function setStudMsgHeadTabCheck() {
-            var currentUrl = window.location.href;
-            currentUrl = currentUrl.toLowerCase();
-            var asmhm = "";
-            $("#ulStudMsgHeadTab li").each(function () {
-                asmhm = $(this).find('a').attr("href").toLowerCase();
-                if (currentUrl.indexOf(asmhm) > 0) {
-                    $(this).find('a').attr("class", "tab1");
-                    return;
-                }
-            });
-        }
-    </script>
-    
     <script src="../Script/Base.js" type="text/javascript"></script>
 </head>
 <body>    
     <h2 class="mbx">
-        教务中心 &gt; 我的书籍</h2>
+        教务中心 &gt; 班级课程表</h2>
     <div class="morebt">
-        <ul>
-            <li><a class="tab1" href="Book.jsp">班级课程表</a></li>
-            <li><a class="tab2" href="classfare.jsp">班级班费</a></li>
-            <li><a class="tab2" href="vote.jsp">投票</a></li>
-            <li><a class="tab2" href="group.jsp">小组</a></li>
-        </ul>
+        <%@include file="../JspCommon/classCenterTagHead.jsp"%>
     </div>
     <div class="cztable">
         <div class="tis red">
-            注：请仔细核对自己的书籍发放情况，如正确请点击“确定无误”，如不正确请点击“有异议”。
+            注：请仔细核对自己的课程情况，如正确请点击“确定无误”，如不正确请点击“有异议”。
         </div>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tbody>
