@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
 	学生信息管理平台
 </title><link href="Style/StudentStyle.css" rel="stylesheet" type="text/css" /><link href="../Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" /><link href="../Style/ks.css" rel="stylesheet" type="text/css" />
-    <script src="${pageContext.request.contextPath}/Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
     <script src="Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
     <script src="Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
     <script src="Script/Common.js" type="text/javascript"></script>
-    <script src="${pageContext.request.contextPath}/Script/Data.js" type="text/javascript"></script>
+    <script src="Script/Data.js" type="text/javascript"></script>
     <script src="../Script/Base.js" type="text/javascript"></script>
     <style>
 	table td{
@@ -54,7 +55,17 @@
             <td width="8%">95</td>
             <td width="8%">3</td>
         </tr>
-        
+        <!-- 遍历输入list中的数据 -->
+        <c:forEach  var="score" items="${ scores }" varStatus="status">
+        	<tr style="height: 28px" class="tdbg" align="left">
+	            <td width="5%"> ${ status.index+1} </td>
+	            <td width="12%">2015-01-15</td>
+	            <td width="15%">${ score.subid }</td>
+	            <td width="20%">课程 ${ score.username }</td>
+	            <td width="8%">${ score.score }</td>
+	            <td width="8%">3</td>
+	        </tr>
+        </c:forEach>
     </table>
     </div>
 </body>
