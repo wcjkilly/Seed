@@ -1,11 +1,15 @@
 package com.actions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 
 import com.model.ClassInfo;
+import com.model.Score;
 import com.model.Student;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -94,8 +98,20 @@ public class UserAction extends ActionSupport {
 			@Result(name = "success", location = "/EducationCenter/Score.jsp") })
 	
 	public String educationCenter() {
+		//≤‚ ‘ ˝æ›
+		List<Score> scores = new ArrayList<>();
+		Score s1 = new Score();
+		s1.setUsername("xiaoming");
+		s1.setSubid(1234);
+		s1.setScore(99);
+		Score s2 = new Score();
+		s2.setUsername("xiaowang");
+		s2.setSubid(4321);
+		s2.setScore(64);
+		scores.add(s1);
+		scores.add(s2);
 		
-		
+		ActionContext.getContext().put("scores",scores);
 		
 		return SUCCESS;
 		
