@@ -73,12 +73,10 @@
         </tr>
             
             <tr>
-                    <td align="right"><div align="right">辅导员老师：</div>&nbsp;</td>
-                    <td><div align="left">${classInfo.fteacher}</div></td>
-                    <td><div align="right">电话：</div>&nbsp;</td>
-                    <td><div align="left">${classInfo.tel}</div>&nbsp;</td>
-                    <td align="right"><div align="right">在线交流：</div>&nbsp;</td>
-                    <td align="right"><div align="left"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2::41" alt="点击这里给我发消息" /></a></div>&nbsp;</td>
+                    <td align="right">辅导员老师：</td>
+                    <td>${classInfo.fteacher}</td>
+                    <td style="text-align: right;width:90px;">电话：&nbsp;</td>
+                    <td>${classInfo.tel}</td>
                   </tr>
             
         <tr>

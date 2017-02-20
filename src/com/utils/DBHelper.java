@@ -29,7 +29,7 @@ public class DBHelper {
 	            // DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 	            // 2.与3类似
 	            // System.setProperty("jdbc.drivers","com.mysql.jdbc.Driver");
-	            Class.forName("org.postgresql.Driver");// 推荐使用方式
+	            Class.forName("com.mysql.jdbc.Driver");// 推荐使用方式
 	        } catch (ClassNotFoundException e) {
 	            e.printStackTrace();
 	        }
@@ -39,7 +39,7 @@ public class DBHelper {
 	    public Connection getConnection() {
 	       if(conn==null){
 	    	   try {
-		            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "123456");
+		            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/seed","root", "margin");
 		        } catch (SQLException e) {
 		            e.printStackTrace();
 		        }

@@ -9,11 +9,6 @@
 
 </head>
 <body>
-	<script src="Script/pixi.js"></script>
-	<script src='Script/TweenMax.min.js'></script>
-    <script src='Script/ColorPropsPlugin.min.js'></script>
-    <script src="Script/index.js"></script>
-	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
     <div class="logincontent">
         <h1>南昌大学教务管理系统</h1>
         <span style="color:red;">&nbsp;${msg}&nbsp;</span>
