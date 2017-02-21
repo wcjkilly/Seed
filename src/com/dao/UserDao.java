@@ -14,7 +14,7 @@ import com.utils.DBHelper;
 
 public class UserDao {
 
-	//TODO 实例化数据库连接或其他实例
+	//实例化数据库连接或其他实例
 	private Connection conn = DBHelper.getInitJDBCUtil().getConnection();
 	private Student student = new Student();
 	private ClassInfo classinfo = new ClassInfo();

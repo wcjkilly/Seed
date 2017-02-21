@@ -12,39 +12,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.service.UserService;
 
 public class ClassAction extends ActionSupport {
-	
-	//用于接收form表单的参数
-	private String username;
-	private String password;
-	//用于将信息返回到jsp页面
-	private String msg;
-	//用于调用业务层的方法
-	private UserService userService = new UserService();
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
 
 	@Action(value = "book", results = {
 			@Result(name = "success", location = "/EducationCenter/Book.jsp") })

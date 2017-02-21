@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" 
+   version="2.0"> 
+   	<tlib-version>1.0</tlib-version> 
+   	<short-name>el</short-name> 
+   	<uri>http://www.demo.com/ELUrlHelper</uri>
+	<function>
+		<!-- 对这个EL方法的描述  -->
+		<description>encode url string to utf8 format</description> 
+		<name>urlEncode</name><!-- 调用EL方法的名称 --> 
+		<function-class>com.utils.ELUrlHelper</function-class> 
+		<function-signature> 
+		     java.lang.String urlEncode(java.lang.String)
+		</function-signature> 
+		<example>${el:urlEncode(str)}</example><!-- 例如 --> 
+	</function> 
+	<function>
+		<!-- 对这个EL方法的描述  -->
+		<description>encode url string to Id</description> 
+		<name>urlEncodeToId</name><!-- 调用EL方法的名称 --> 
+		<function-class>com.utils.ELUrlHelper</function-class> 
+		<function-signature> 
+		     java.lang.String urlEncodeToId(java.lang.String)
+		</function-signature> 
+		<example>${urlEncodeToId(str)}</example><!-- 例如 --> 
+	</function>
+</taglib>
+
