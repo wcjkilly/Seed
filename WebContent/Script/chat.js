@@ -6,6 +6,42 @@ function message() {
     8e3)
 }
 $(document).ready(function() {
+	
+	ws = new WebSocket("ws://localhost:9080/Seed/websocket");
+	ws.onopen = function() {
+		alert("连接服务器");
+	};
+	ws.onmessage = function(evn) {
+		function h() { - 1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
+        }
+        function checkTime(i){
+        	if (i<10){
+        		i="0" + i;
+        	}
+        	return i;
+        }
+        var e = new Date(),
+        f = "";
+        var hou= e.getHours();
+        var min= e.getMinutes();
+        var sou= e.getSeconds();
+        hou=checkTime(hou);
+        min=checkTime(min);
+        sou=checkTime(sou);
+        f=hou+":"+min+":"+sou;
+        var g = $("#textarea").val();
+        h();
+		var i = "<div class='message clearfix'>" + "<div class='user-logo' style='float:right;border-radius: 50%;overflow: hidden;'>" + "<img src='" + c + "'/>"
+		+ "</div>" + "<div class='wrap-text' style='float:right;margin-right:10px;'>"  + "<div style='text-align:right'>" + 
+		evn.data + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
+		"<div clsss='clearfix' style='right: 88%;'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
+		$(".mes" + a).append(i);
+		message();
+	};
+	ws.onclose = function() {
+		alert("断开连接");
+	};
+	
     function e() {
         function h() { - 1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
         }
@@ -17,13 +53,10 @@ $(document).ready(function() {
         }
         var e = new Date(),
         f = "";
-//        f += e.getHours() + ":",
-//        f += e.getMinutes() + ":",
-//        f += e.getSeconds();
         var hou= e.getHours();
         var min= e.getMinutes();
         var sou= e.getSeconds();
-//      hou=checkTime(hou);
+        hou=checkTime(hou);
         min=checkTime(min);
         sou=checkTime(sou);
         f=hou+":"+min+":"+sou;
@@ -44,12 +77,11 @@ $(document).ready(function() {
 		+ "<div style='clear:both;'></div>" + "</div>"
 		
 		//回复内容
-		+"<div class='message clearfix'>" + "<div class='user-logo' style='float:right;border-radius: 50%;overflow: hidden;'>" + "<img src='" + c + "'/>"
-		+ "</div>" + "<div class='wrap-text' style='float:right;margin-right:10px;'>"  + "<div style='text-align:right'>" + 
-		g + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
-		"<div clsss='clearfix' style='right: 88%;'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
-        null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height()), $("#textarea").val(""), message()) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!")
-		
+//		+"<div class='message clearfix'>" + "<div class='user-logo' style='float:right;border-radius: 50%;overflow: hidden;'>" + "<img src='" + c + "'/>"
+//		+ "</div>" + "<div class='wrap-text' style='float:right;margin-right:10px;'>"  + "<div style='text-align:right'>" + 
+//		g + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
+//		"<div clsss='clearfix' style='right: 88%;'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
+        null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height()), $("#textarea").val(""),ws.send(g)) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!")
     };
 
     var a = 3,
