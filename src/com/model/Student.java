@@ -1,9 +1,5 @@
 package com.model;
 
-import java.util.Date;
-
-
-
 public class Student {
 	private String username;//用户名
 	private String cardid; //身份证号
@@ -12,7 +8,7 @@ public class Student {
 	private String sex;//性别
 	private String class_;//所在班级
 	private String position;//担任职务
-	private Date timeToSch;//入校时间
+	private String timeToSch;//入校时间
 	private String address;//联系地址
 	private String tel;//手机号
 	private String qq;//qq号
@@ -58,10 +54,10 @@ public class Student {
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	public Date getTimeToSch() {
+	public String getTimeToSch() {
 		return timeToSch;
 	}
-	public void setTimeToSch(Date timeToSch) {
+	public void setTimeToSch(String timeToSch) {
 		this.timeToSch = timeToSch;
 	}
 	public String getAddress() {

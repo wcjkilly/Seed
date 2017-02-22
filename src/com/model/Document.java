@@ -11,7 +11,7 @@ public class Document {
 	//资料名字
 	private String documentName;
 	//上传时间
-	private Date uploadTime;
+	private String uploadTime;
 	//资料保存路径
 	private String path;
 	
@@ -33,10 +33,10 @@ public class Document {
 	public void setDocumentName(String documentName) {
 		this.documentName = documentName;
 	}
-	public Date getUploadTime() {
+	public String getUploadTime() {
 		return uploadTime;
 	}
-	public void setUploadTime(Date uploadTime) {
+	public void setUploadTime(String uploadTime) {
 		this.uploadTime = uploadTime;
 	}
 	public String getPath() {

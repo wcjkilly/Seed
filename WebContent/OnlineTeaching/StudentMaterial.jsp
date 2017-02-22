@@ -80,7 +80,7 @@
                     <th style="padding-left: 20px;">资料名称</th>
                     <th style="width: 15%; text-align: center;">科目</th>
                     <th style="width: 15%; text-align: center;">资料类型</th>
-                    <th style="width: 15%; text-align: center;">更新时间</th>
+                    <th style="width: 20%; text-align: center;">更新时间</th>
                     <th style="width: 15%; text-align: center;">操作</th>
                 </tr>
                 

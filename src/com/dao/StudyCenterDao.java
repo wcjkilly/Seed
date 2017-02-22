@@ -106,9 +106,9 @@ public class StudyCenterDao {
 			document.setDocumentType(rs.getString("documenttype"));
 			document.setDocumentName(rs.getString("documentname"));
 			document.setPath(rs.getString("path"));
-			document.setUploadTime(sdf.parse(rs.getString("uploadtime")));
+			document.setUploadTime(rs.getString("uploadtime"));
 			list.add(document);
-		} catch (SQLException | ParseException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}

@@ -57,7 +57,6 @@ public class UserDao {
 	}
 	//将个人信息数据库查询结果集转成javabean对象
 	private Student setStuInfo(ResultSet rs){
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			Student student = new Student();
 			student.setUsername(rs.getString("username"));
@@ -68,11 +67,11 @@ public class UserDao {
 			student.setSex(rs.getString("sex"));
 			student.setQq(rs.getString("qq"));
 			student.setPosition(rs.getString("position"));
-			student.setTimeToSch(sdf.parse(rs.getString("time")));
+			student.setTimeToSch(rs.getString("time"));
 			student.setTel(rs.getString("tel"));
 			student.setSid(rs.getString("sid"));
 			return student;
-		} catch (SQLException | ParseException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
