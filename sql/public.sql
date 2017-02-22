@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50552
 File Encoding         : 65001
 
-Date: 2017-02-22 08:34:21
+Date: 2017-02-22 18:46:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,6 +35,7 @@ CREATE TABLE `classinfo` (
 -- Records of classinfo
 -- ----------------------------
 INSERT INTO `classinfo` VALUES ('2013级数学13班', '12345678', '你会写笛卡尔的心形函数么？', '西安交大', '汪哈哈', '66666636', '2017-01-02 00:00:00', '12', '1');
+INSERT INTO `classinfo` VALUES ('2013级英语1班', '12348765', 'say hello to world!', '北京大学', 'Mr.Li', '66666656', '2017-02-07 10:09:47', '12', '2');
 
 -- ----------------------------
 -- Table structure for `document`
@@ -115,6 +116,10 @@ CREATE TABLE `score` (
 -- Records of score
 -- ----------------------------
 INSERT INTO `score` VALUES ('xiaoming', '23', '90');
+INSERT INTO `score` VALUES ('xiaowang', '24', '98');
+INSERT INTO `score` VALUES ('xiaoming', '22', '88');
+INSERT INTO `score` VALUES ('xiaoming', '24', '79');
+INSERT INTO `score` VALUES ('xiaowang', '22', '90');
 
 -- ----------------------------
 -- Table structure for `subinfo`
@@ -123,14 +128,16 @@ DROP TABLE IF EXISTS `subinfo`;
 CREATE TABLE `subinfo` (
   `subid` int(11) NOT NULL,
   `sub` varchar(64) DEFAULT '',
-  `starttime` varchar(64) DEFAULT '',
+  `starttime` timestamp NULL DEFAULT NULL,
   `subscore` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of subinfo
 -- ----------------------------
-INSERT INTO `subinfo` VALUES ('23', '数学', '23', '3');
+INSERT INTO `subinfo` VALUES ('23', '数学', '2015-09-01 08:00:58', '3');
+INSERT INTO `subinfo` VALUES ('24', '英语', '2016-10-01 08:00:17', '4');
+INSERT INTO `subinfo` VALUES ('22', '大学物理', '2016-09-01 15:15:17', '5');
 
 -- ----------------------------
 -- Table structure for `userinfo`
@@ -156,3 +163,4 @@ CREATE TABLE `userinfo` (
 -- Records of userinfo
 -- ----------------------------
 INSERT INTO `userinfo` VALUES ('xiaoming', '123', '666666123456789012', '2013级数学13班', '贵阳', '数学', '男', '36763676', '班长', '2017-01-02 00:00:00', '12344566', '544333', '1');
+INSERT INTO `userinfo` VALUES ('xiaowang', '123', '66666666', '2013级英语1班', '成都', '英语', '女', '66666666', '文艺委员', '2013-09-01 08:00:00', '12366666', '333666', '2');
