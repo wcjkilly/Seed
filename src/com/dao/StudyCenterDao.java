@@ -31,7 +31,6 @@ public class StudyCenterDao {
 			rs.close();
 			st.close();
 		} catch (SQLException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 		return list;
@@ -50,7 +49,6 @@ public class StudyCenterDao {
 			rs.close();
 			st.close();
 		} catch (SQLException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 		return list;
@@ -68,7 +66,6 @@ public class StudyCenterDao {
 			st.close();
 			return rs>0;
 		} catch (SQLException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 		return false;
@@ -97,7 +94,6 @@ public class StudyCenterDao {
 			rs.close();
 			st.close();
 		} catch (SQLException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 		return list;
@@ -113,7 +109,6 @@ public class StudyCenterDao {
 			document.setUploadTime(sdf.parse(rs.getString("uploadtime")));
 			list.add(document);
 		} catch (SQLException | ParseException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 	}

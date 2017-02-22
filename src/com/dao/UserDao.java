@@ -6,9 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.model.ClassInfo;
+import com.model.ScoreView;
 import com.model.Student;
 import com.utils.DBHelper;
 
@@ -16,10 +19,10 @@ public class UserDao {
 
 	//实例化数据库连接或其他实例
 	private Connection conn = DBHelper.getInitJDBCUtil().getConnection();
-	private Student student = new Student();
-	private ClassInfo classinfo = new ClassInfo();
+	
+	//登录验证
 	public Boolean login(String username, String password) {
-		//TODO 数据库检查该用户名密码是否是合法用户登录
+		//数据库检查该用户名密码是否是合法用户登录
 		Statement st;
 		try {
 			st = conn.createStatement();
@@ -31,12 +34,12 @@ public class UserDao {
 			rs.close();
 			st.close();
 		} catch (SQLException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 		return false;
 	}
 	
+	//获取个人信息
 	public Student getUserInfo(String username) {
 		Statement st;
 		try {
@@ -48,25 +51,15 @@ public class UserDao {
 			rs.close();
 			st.close();
 		} catch (SQLException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 		return null;
 	}
-
-	public Boolean register(String username, String password, int age) {
-		// TODO 插入数据到数据库中,成功返回true，否则返回false
-		
-		if(username.startsWith("admin") && !password.isEmpty()){
-			return false;
-		}
-		return true;
-	}
-	
+	//将个人信息数据库查询结果集转成javabean对象
 	private Student setStuInfo(ResultSet rs){
-		//Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
+			Student student = new Student();
 			student.setUsername(rs.getString("username"));
 			student.setAddress(rs.getString("address"));
 			student.setCardid(rs.getString("cardid"));
@@ -80,15 +73,14 @@ public class UserDao {
 			student.setSid(rs.getString("sid"));
 			return student;
 		} catch (SQLException | ParseException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 		
 		return null;
 	}
 
+	//获取班级信息
 	public ClassInfo searchClass(String username) {
-		// TODO Auto-generated method stub
 		Statement st;
 		ResultSet rs;
 		try {
@@ -101,15 +93,14 @@ public class UserDao {
 			rs.close();
 			st.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	    return null;
 	}
-
+	//将班级信息数据库查询结果集转成javabean对象
 	private ClassInfo setClassInfo(ResultSet rs) throws NumberFormatException, SQLException {
-		// TODO Auto-generated method stub
+		ClassInfo classinfo = new ClassInfo();
 		classinfo.setClass_(rs.getString("class"));
 		classinfo.setClassflag(rs.getString("classflag"));
 		classinfo.setClassid(Integer.valueOf(rs.getString("classid")));
@@ -120,6 +111,51 @@ public class UserDao {
 		classinfo.setTalktime(rs.getString("talktime"));
 		classinfo.setTel(rs.getString("tel"));
 		return classinfo;
+	}
+	
+	//获取个人成绩
+	public List<ScoreView> getUserScores(String username, String subStartTime, String subEndTime) {
+		Statement st;
+		List<ScoreView> list = new ArrayList<>();
+		try {
+			st = conn.createStatement();
+			String sql = "SELECT score.username,score.subid,subinfo.sub,subinfo.starttime,subinfo.subscore,score.score "
+					+ "FROM score INNER JOIN subinfo ON score.subid=subinfo.subid  "
+					+ "WHERE score.username = '"+username+"' ";
+			if(subStartTime!=null && subEndTime!=null){
+				if("".equals(subStartTime) && (!"".equals(subEndTime))){
+					sql += "AND subinfo.starttime<='"+subEndTime+"'";
+				}else if("".equals(subEndTime) && (!"".equals(subStartTime))){
+					sql += "AND subinfo.starttime>='"+subStartTime+"'";
+				}else if((!"".equals(subStartTime)) && (!"".equals(subEndTime))){
+					sql += "AND subinfo.starttime>='"+subStartTime+"' AND subinfo.starttime<='"+subEndTime+"'";
+				}
+			}
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {				
+				setScoreView(rs, list);
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	private void setScoreView(ResultSet rs,List<ScoreView> list){
+		ScoreView scoreView = new ScoreView();
+		try {
+			scoreView.setUsername(rs.getString("username"));
+			scoreView.setSubid(rs.getInt("subid"));
+			scoreView.setSub(rs.getString("sub"));
+			scoreView.setStarttime(rs.getString("starttime"));
+			scoreView.setSubscore(rs.getDouble("subscore"));
+			scoreView.setScore(rs.getDouble("score"));
+			list.add(scoreView);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
