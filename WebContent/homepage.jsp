@@ -100,7 +100,7 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
 <![endif]-->
 </head>
 <body>
-<div class="banner">
+	<div class="banner">
         <div class="bgh">
             <div class="page">
                 <div id="logo">
@@ -150,20 +150,20 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
                             <a href="group.action" target="contentshow">小组</a></div>
                     </div>
                     <div class="ta1">
-                        <strong>学习中心</strong><div class="leftbgbt2">
-                        </div>
+                        <strong>学习中心</strong><div class="leftbgbt2"></div>
                     </div>
                     <div class="cdlist">
                         <div>
-                            <a href="studentMaterial.action" target="contentshow">资料下载</a></div>
+                            <a href="studentMaterial.action" target="contentshow">资料下载</a>
+                        </div>
                         <div>
-                            <a href="studentStudyRecordList.action" target="contentshow">资料上传</a></div>
+                            <a href="studentStudyRecordList.action" target="contentshow">资料上传</a>
+                        </div>
                     </div> 
                 </div>
             </div>
             <div class="rightbox animated zoomIn">
-                <iframe src="userInfo.action" id="contentshow" name="contentshow" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;height:100%">	
-        </iframe>
+                <iframe src="userInfo.action" id="contentshow" name="contentshow" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;height:100%"></iframe>
             </div>
         </div>
     </div>
@@ -176,7 +176,8 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
             <div class="chat01">
                 <div class="chat01_title">
                     <ul class="talkTo">
-                        <li><a href="javascript:;">王旭</a></li></ul>
+                        <li><a href="javascript:;">王旭</a></li>
+                    </ul>
                     <a class="close_btn" href="javascript:;"></a>
                 </div>
                 <div class="chat01_content">
@@ -327,8 +328,7 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
         <div class="chatRight">
             <div class="chat03">
                 <div class="chat03_title">
-                    <label class="chat03_title_t">
-                        成员列表</label>
+                    <label class="chat03_title_t">成员列表</label>
                 </div>
                 <div class="chat03_content">
                     <ul>

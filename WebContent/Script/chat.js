@@ -9,7 +9,7 @@ $(document).ready(function() {
 	
 	ws = new WebSocket("ws://localhost:9080/Seed/websocket");
 	ws.onopen = function() {
-		alert("连接服务器");
+		alert("连接服务器成功");
 	};
 	ws.onmessage = function(evn) {
 		function h() { - 1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
@@ -39,7 +39,7 @@ $(document).ready(function() {
 		message();
 	};
 	ws.onclose = function() {
-		alert("断开连接");
+		alert("断开与服务器的连接");
 	};
 	
     function e() {

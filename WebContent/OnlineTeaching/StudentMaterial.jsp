@@ -100,7 +100,7 @@
             </table>
             
             <!-- TODO 分页 -->
-            <div class='MainStyle'>
+            <!-- <div class='MainStyle'>
 	            <div class=''>
 	            	<a href='http://sm.zk0731.com/OnlineTeaching/StudentMaterial.aspx?page=1' target='_self'>首页</a>
 	            </div>
@@ -142,7 +142,7 @@
 	            		alert('需要跳转的页码不能超出范围！');       
 	            	}  
 	            }
-            </script>
+            </script> -->
         </div>
     </div>
 </body>
