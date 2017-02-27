@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>登录页面</title>
 <link href="Style/login.css" rel="stylesheet" type="text/css" />
+<script src="Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
 
 </head>
 <body>

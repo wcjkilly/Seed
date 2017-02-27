@@ -1,3 +1,9 @@
+var a = 1,
+b = "img/head/2024.jpg",
+c = "img/head/2015.jpg",
+d = "\u738b\u65ed";
+
+//消息闪烁
 function message() {
     var a = $.blinkTitle.show();
     setTimeout(function() {
@@ -5,90 +11,45 @@ function message() {
     },
     8e3)
 }
-$(document).ready(function() {
-	
-	ws = new WebSocket("ws://localhost:9080/Seed/websocket");
-	ws.onopen = function() {
-		alert("连接服务器成功");
-	};
-	ws.onmessage = function(evn) {
-		function h() { - 1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
-        }
-        function checkTime(i){
-        	if (i<10){
-        		i="0" + i;
-        	}
-        	return i;
-        }
-        var e = new Date(),
-        f = "";
-        var hou= e.getHours();
-        var min= e.getMinutes();
-        var sou= e.getSeconds();
-        hou=checkTime(hou);
-        min=checkTime(min);
-        sou=checkTime(sou);
-        f=hou+":"+min+":"+sou;
-        var g = $("#textarea").val();
-        h();
-		var i = "<div class='message clearfix'>" + "<div class='user-logo' style='float:right;border-radius: 50%;overflow: hidden;'>" + "<img src='" + c + "'/>"
-		+ "</div>" + "<div class='wrap-text' style='float:right;margin-right:10px;'>"  + "<div style='text-align:right'>" + 
-		evn.data + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
-		"<div clsss='clearfix' style='right: 88%;'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
-		$(".mes" + a).append(i);
-		message();
-	};
-	ws.onclose = function() {
-		alert("断开与服务器的连接");
-	};
-	
-    function e() {
-        function h() { - 1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
-        }
-        function checkTime(i){
-        	if (i<10){
-        		i="0" + i;
-        	}
-        	return i;
-        }
-        var e = new Date(),
-        f = "";
-        var hou= e.getHours();
-        var min= e.getMinutes();
-        var sou= e.getSeconds();
-        hou=checkTime(hou);
-        min=checkTime(min);
-        sou=checkTime(sou);
-        f=hou+":"+min+":"+sou;
-        var g = $("#textarea").val();
-        h();
-        /*var i = "<div class='message clearfix'><div class='user-logo'><img src='" + b + "'/>" 
-		+ "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>\u5f20\u98de</h5>" + "<div>" + 
-		g + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div clsss='clearfix'><span>" + f + "</span></div>" + "</div>"
-		+ "<div style='clear:both;'></div>" + "</div>"
-		
-		//回复内容
-		+"<div class='message clearfix'>" + "<div class='user-logo'>" + "<img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>" + d + "</h5>" + "<div>" + g + "\u7684\u56de\u590d\u5185\u5bb9</div>" + "</div>" + "<div class='wrap-ri'>" + "<div clsss='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
-        null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height()), $("#textarea").val(""), message()) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!")
-		*/
-		var i = "<div class='message clearfix'><div class='user-logo' style='border-radius: 50%;overflow: hidden;'><img src='" + b + "'/>" 
-		+ "</div>" + "<div class='wrap-text'>"  + "<div>" + 
-		g + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div clsss='clearfix'><span>" + f + "</span></div>" + "</div>"
-		+ "<div style='clear:both;'></div>" + "</div>"
-		
-		//回复内容
-//		+"<div class='message clearfix'>" + "<div class='user-logo' style='float:right;border-radius: 50%;overflow: hidden;'>" + "<img src='" + c + "'/>"
-//		+ "</div>" + "<div class='wrap-text' style='float:right;margin-right:10px;'>"  + "<div style='text-align:right'>" + 
-//		g + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
-//		"<div clsss='clearfix' style='right: 88%;'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
-        null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height()), $("#textarea").val(""),ws.send(g)) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!")
-    };
 
-    var a = 3,
-    b = "img/head/2024.jpg",
-    c = "img/head/2015.jpg",
-    d = "\u738b\u65ed";
-    $(".close_btn").click(function() {
+//时间不足两位的补0
+function checkTime(i){
+	if (i<10){
+		i="0" + i;
+	}
+	return i;
+}
+
+//发送消息
+function e() {
+	//将图片表情转换成图片显示
+	function h() { - 1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
+	}
+    var e = new Date(),
+    f = "";
+    var hou= e.getHours();
+    var min= e.getMinutes();
+    var sou= e.getSeconds();
+    hou=checkTime(hou);
+    min=checkTime(min);
+    sou=checkTime(sou);
+    f=hou+":"+min+":"+sou;
+    //获取发送消息内容
+    var g = $("#textarea").val();
+    //在要发送的消息前加前缀，用于标识要发送给谁
+    var gtemp = $(".talkTo a").text() + "__####__" + $("#textarea").val();
+    h();
+    
+	var i = "<div class='message clearfix'><div class='user-logo' style='border-radius: 50%;overflow: hidden;'><img src='" + b + "'/>" 
+	+ "</div>" + "<div class='wrap-text'>"  + "<div>" + 
+	g + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div clsss='clearfix'><span>" + f + "</span></div>" + "</div>"
+	+ "<div style='clear:both;'></div>" + "</div>"
+    
+	null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height()), $("#textarea").val(""),ws.send(gtemp)) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!")
+};
+//初始化聊天窗口事件监听
+function initListener(){
+	$(".close_btn").click(function() {
         $(".chatBox").hide()
     }),
     $(".chat03_content li").mouseover(function() {
@@ -99,7 +60,7 @@ $(document).ready(function() {
     $(".chat03_content li").dblclick(function() {
         var b = $(this).index() + 1;
         a = b,
-        c = "img/head/20" + (12 + a) + ".jpg",
+        c = "img/head/2016.jpg",
         d = $(this).find(".chat03_name").text(),
         $(".chat01_content").scrollTop(0),
         $(this).addClass("choosed").siblings().removeClass("choosed"),
@@ -149,8 +110,65 @@ $(document).ready(function() {
     $.fn.focusEnd = function() {
         this.setCursorPosition(this.val().length)
     }
-}),
+};
 
+$(document).ready(function() {
+	
+	ws = new WebSocket("ws://localhost:9080/Seed/websocket");
+	ws.onopen = function() {
+		//连接服务器成功后加载用户列表，并设置相应的监听事件
+		$.ajax({
+			type:'get',
+			url:'chatAllUsers.action',
+			dataType: 'json',
+			success:function(data){
+				$.each(data.list,function(i,item){
+					var temp1 = "";
+					var temp2 = "";
+					if(i==0){
+						temp1 = "<li class='choosed'><label class='online'></label><a href='javascript:;'><img src='img/head/2016.jpg'></a><a href='javascript:;' class='chat03_name'>"+item.username+"</a></li>";
+						temp2 = "<div class='message_box mes1' style='display: block;'></div>";
+						$(".talkTo a").text(item.username);
+					}else{
+						temp1 = "<li><label class='offline'></label><a href='javascript:;'><img src='img/head/2016.jpg'></a><a href='javascript:;' class='chat03_name'>"+item.username+"</a></li>";
+						temp2 = "<div class='message_box mes"+(i+1)+"'></div>";
+					}
+					//alert(temp1);
+					//alert(temp2);
+					$(".chat03_content ul").append(temp1);
+					$(".chat01_content").append(temp2);
+				}),
+				//初始化监听
+				initListener()
+			}
+		});
+	};
+	ws.onmessage = function(evn) {
+		//将图片表情转换成图片显示
+		function h() { - 1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
+		}
+        var e = new Date(),
+        f = "";
+        var hou= e.getHours();
+        var min= e.getMinutes();
+        var sou= e.getSeconds();
+        hou=checkTime(hou);
+        min=checkTime(min);
+        sou=checkTime(sou);
+        f=hou+":"+min+":"+sou;
+        var g = evn.data;
+        h();
+		var i = "<div class='message clearfix'>" + "<div class='user-logo' style='float:right;border-radius: 50%;overflow: hidden;'>" + "<img src='" + c + "'/>"
+		+ "</div>" + "<div class='wrap-text' style='float:right;margin-right:10px;'>"  + "<div style='text-align:right'>" + 
+		g + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
+		"<div clsss='clearfix' style='right: 88%;'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
+		$(".mes" + a).append(i);
+		message();
+	};
+	ws.onclose = function() {
+		alert("断开与服务器的连接");
+	};
+}),
 function(a) {
     a.extend({
         blinkTitle: {

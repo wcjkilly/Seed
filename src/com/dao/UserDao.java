@@ -74,7 +74,6 @@ public class UserDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 
@@ -156,5 +155,24 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
+	
+	//获取用户列表
+	public List<Student> getAllUsers() {
+		List<Student> list = new ArrayList();
+		Statement st;
+		try {
+			st = conn.createStatement();
+			ResultSet rs = st.executeQuery("SELECT * FROM UserInfo");
+			while (rs.next()) {				
+				list.add(setStuInfo(rs));
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 
 }

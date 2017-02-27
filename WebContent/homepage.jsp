@@ -9,32 +9,16 @@
 <link href="Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" />
 <link href="Style/ks.css" rel="stylesheet" type="text/css" />
 <link href="Style/animate.min.css" rel="stylesheet" type="text/css" />
+<link  href="Style/chat.css" rel="stylesheet" type="text/css"/>
 <script src="Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
 <script src="Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
 <script src="Script/Common.js" type="text/javascript"></script>
 <script src="Script/Data.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="Style/chat.css" />
-<script type="text/javascript" src="Script/chat.js"></script>
 <script type="text/javascript">
         $().ready(function () {
-            setStudMsgHeadTabCheck();
             showUnreadSysMsgCount();
         });
-
-        //我的信息头部选项卡
-        function setStudMsgHeadTabCheck() {
-            var currentUrl = window.location.href;
-            currentUrl = currentUrl.toLowerCase();
-            var asmhm = "";
-            $("#ulStudMsgHeadTab li").each(function () {
-                asmhm = $(this).find('a').attr("href").toLowerCase();
-                if (currentUrl.indexOf(asmhm) > 0) {
-                    $(this).find('a').attr("class", "tab1");
-                    return;
-                }
-            });
-        }
 
         //显示未读系统信息
         function showUnreadSysMsgCount() {
@@ -53,35 +37,6 @@
                     }
                     else {                 
 						return false;
-                    }
-                });
-            }
-        }
-        //更改报考类别
-        function changeCateory(thisObj, id) {
-            var oldCateoryId = $("#cateoryId").val();
-            var cateoryId = "";
-            if (id != null) {
-                cateoryId = id;
-            }
-            else {
-                cateoryId = thisObj.val();
-            }
-            var studentId = $("#studentId").val();
-            if (cateoryId.length <= 0) {
-                jBox.tip("报考类别不能为空！");
-                if (id == null) {
-                    thisObj.val(oldCateoryId);
-                }
-            }
-            else {
-                studentInfo.changeStudentCateory(cateoryId, function (data) {
-                    var result = $.parseJSON(data);
-                    if ((String(result.ok) == "true")) {
-                        window.location.href = "/Index";
-                    }
-                    else {
-                        jBox.tip(result.message);
                     }
                 });
             }
@@ -176,31 +131,11 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
             <div class="chat01">
                 <div class="chat01_title">
                     <ul class="talkTo">
-                        <li><a href="javascript:;">王旭</a></li>
+                        <li><a href="javascript:;">username</a></li>
                     </ul>
                     <a class="close_btn" href="javascript:;"></a>
                 </div>
                 <div class="chat01_content">
-                    <div class="message_box mes1">
-                    </div>
-                    <div class="message_box mes2">
-                    </div>
-                    <div class="message_box mes3" style="display: block;">
-                    </div>
-                    <div class="message_box mes4">
-                    </div>
-                    <div class="message_box mes5">
-                    </div>
-                    <div class="message_box mes6">
-                    </div>
-                    <div class="message_box mes7">
-                    </div>
-                    <div class="message_box mes8">
-                    </div>
-                    <div class="message_box mes9">
-                    </div>
-                    <div class="message_box mes10">
-                    </div>
                 </div>
             </div>
             <div class="chat02">
@@ -332,66 +267,6 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
                 </div>
                 <div class="chat03_content">
                     <ul>
-                        <li>
-                            <label class="online">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2013.jpg"></a><a href="javascript:;" class="chat03_name">刘秀</a>
-                        </li>
-                        <li>
-                            <label class="offline">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2014.jpg"></a><a href="javascript:;" class="chat03_name">陈诚</a>
-                        </li>
-                        <li class="choosed">
-                            <label class="offline">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2015.jpg"></a><a href="javascript:;" class="chat03_name">王旭</a>
-                        </li>
-                        <li>
-                            <label class="offline">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2016.jpg"></a><a href="javascript:;" class="chat03_name">张灵</a>
-                        </li>
-                        <li>
-                            <label class="online">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2017.jpg"></a><a href="javascript:;" class="chat03_name">吴敬</a>
-                        </li>
-                        <li>
-                            <label class="offline">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2018.jpg"></a><a href="javascript:;" class="chat03_name">王海东</a>
-                        </li>
-                        <li>
-                            <label class="offline">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2019.jpg"></a><a href="javascript:;" class="chat03_name">郑小勇</a>
-                        </li>
-                        <li>
-                            <label class="online">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2020.jpg"></a><a href="javascript:;" class="chat03_name">张珊珊</a>
-                        </li>
-                        <li>
-                            <label class="offline">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2021.jpg"></a><a href="javascript:;" class="chat03_name">刘强</a>
-                        </li>
-                        <li>
-                            <label class="offline">
-                            </label>
-                            <a href="javascript:;">
-                                <img src="img/head/2022.jpg"></a><a href="javascript:;" class="chat03_name">程海斌</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -400,35 +275,36 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
         </div>
     </div>
     
+	<script type="text/javascript" src="Script/chat.js"></script>
     <script> 
-function currentTime(){ 
-	var d=new Date(),str=''; 
-	var weekday=new Array(7);
-	weekday[0]="星期日";
-	weekday[1]="星期一";
-	weekday[2]="星期二";
-	weekday[3]="星期三";
-	weekday[4]="星期四";
-	weekday[5]="星期五";
-	weekday[6]="星期六";
-	str+=d.getFullYear()+'年'; 
-	str+=d.getMonth() + 1+'月'; 
-	str+=d.getDate()+'日 '; 
-	str+=weekday[d.getDay()]; 
-	return str; 
-} 
-setInterval(function(){$('#time').html(currentTime)},1000);
-$(function(){
-	$(".page .box .leftbox .l_nav2 .cdlist div a").hover(function(){
-		$(this).addClass("swing animated");
-	},function(){
-		$(this).removeClass("swing animated");
-	})
-});
-
-$("#inlinecontact").click(function(){
-	$(".chatBox").show(500);
-})
-</script>
+		function currentTime(){ 
+			var d=new Date(),str=''; 
+			var weekday=new Array(7);
+			weekday[0]="星期日";
+			weekday[1]="星期一";
+			weekday[2]="星期二";
+			weekday[3]="星期三";
+			weekday[4]="星期四";
+			weekday[5]="星期五";
+			weekday[6]="星期六";
+			str+=d.getFullYear()+'年'; 
+			str+=d.getMonth() + 1+'月'; 
+			str+=d.getDate()+'日 '; 
+			str+=weekday[d.getDay()]; 
+			return str; 
+		} 
+		setInterval(function(){$('#time').html(currentTime)},1000);
+		$(function(){
+			$(".page .box .leftbox .l_nav2 .cdlist div a").hover(function(){
+				$(this).addClass("swing animated");
+			},function(){
+				$(this).removeClass("swing animated");
+			})
+		});
+		
+		$("#inlinecontact").click(function(){
+			$(".chatBox").show(500);
+		})
+	</script>
 </body>
 </html>

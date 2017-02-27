@@ -17,6 +17,9 @@ public class UserService {
 	public Student getUserInfo(String username){
 		return userDao.getUserInfo(username);
 	}
+	public List<Student> getAllUsers() {
+		return userDao.getAllUsers();
+	}
 	public ClassInfo searchClass(String name){
 		return userDao.searchClass(name);
 	}
