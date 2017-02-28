@@ -158,11 +158,24 @@ $(document).ready(function() {
         f=hou+":"+min+":"+sou;
         var g = evn.data;
         h();
+        
 		var i = "<div class='message clearfix'>" + "<div class='user-logo' style='float:right;border-radius: 50%;overflow: hidden;'>" + "<img src='" + c + "'/>"
 		+ "</div>" + "<div class='wrap-text' style='float:right;margin-right:10px;'>"  + "<div style='text-align:right'>" + 
 		g + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
 		"<div clsss='clearfix' style='right: 88%;'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
-		$(".mes" + a).append(i);
+		
+		//将接收到的消息显示在对应用户的面板区间内
+		var msg_user = g.split(":")[0];
+        console.log(msg_user);
+        $(".chat03_content ul li").each(function(index){
+        	temp_index = $(this).index() + 1;
+            temp_user = $(this).find(".chat03_name").text();
+            console.log(temp_index+"###"+temp_user);
+            if(temp_user==msg_user){
+            	$(".mes" + temp_index).append(i);
+            }
+        });
+		
 		message();
 	};
 	ws.onclose = function() {
