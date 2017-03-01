@@ -1,5 +1,8 @@
 package com.model;
 
+/*
+ * 学生成绩
+ */
 public class Score {
 
 	private String username; //学生名字

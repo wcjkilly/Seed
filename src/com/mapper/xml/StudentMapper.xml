@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.function.StudentMapper">
+	
+	<select id="login" resultType="com.model.Student">
+		select * from userinfo where username = #{username} and password = #{password}
+	</select>
+	
+	<select id="getUserInfo" resultType="com.model.Student">
+		select * from userinfo where username = #{username}
+	</select>
+	
+	<select id="searchClass" resultType="com.model.ClassInfo">
+		select * from classinfo where classid = 
+		(select classid from userinfo where userinfo.username= #{username} )
+	</select>
+	
+	<select id="getUserScores" resultType="com.model.ScoreView">
+		SELECT score.username,score.subid,subinfo.sub,subinfo.starttime,subinfo.subscore,score.score 
+		FROM score INNER JOIN subinfo ON score.subid=subinfo.subid 
+		<where>
+			<if test="username!=null and username!=''">
+				score.username = #{username}
+			</if>
+			<if test="subEndTime!=null and subEndTime!=''">
+				and subinfo.starttime &lt;= #{subEndTime}
+			</if>
+			<if test="subStartTime!=null and subStartTime!=''">
+				and subinfo.starttime &gt;= #{subStartTime}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getAllUsers" resultType="com.model.Student">
+		select * from userinfo
+	</select>
+	
+</mapper>

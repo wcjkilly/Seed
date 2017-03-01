@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.function.StudyCenterMapper">
+	
+	<select id="getDocType" resultType="java.lang.String">
+		select documenttype from documenttype
+	</select>
+	
+	<select id="getDocSub" resultType="java.lang.String">
+		select documentsub from documentsub
+	</select>
+	
+	<resultMap type="com.model.Document" id="documentRM">
+		<id property="id" column="id"/>
+		<result property="documentSub" column="documentsub"/>
+		<result property="documentType" column="documenttype"/>
+		<result property="documentName" column="documentname"/>
+		<result property="uploadTime" column="uploadtime"/>
+		<result property="path" column="path"/>
+	</resultMap>
+	
+	<select id="getAllDoc" resultMap="documentRM">
+		select * from document 
+		<where>
+			<if test="docSub!=null and docSub!=''">
+				documentsub = #{docSub}
+			</if>
+			<if test="docType!=null and docType!=''">
+				and documenttype = #{docType}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="saveDocument" parameterType="com.model.Document"
+		useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		INSERT INTO document(documentsub,documenttype,documentname,uploadtime,path)
+		VALUES (#{documentSub},#{documentType},#{documentName},#{uploadTime},#{path})
+	</insert>
+</mapper>

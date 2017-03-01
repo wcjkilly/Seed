@@ -6,7 +6,7 @@ import javax.websocket.server.HandshakeRequest;
 import javax.websocket.server.ServerEndpointConfig;
 
 /**
- * 用于在websocket中使用Http Session
+ * 用于在websocket中获取使用Http Session
  * @author zhongshan.zhang
  *
  */

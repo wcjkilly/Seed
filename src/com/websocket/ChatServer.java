@@ -13,6 +13,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+//在线聊天服务器类，基于WebSocket实现
 @ServerEndpoint(value="/websocket",configurator=GetHttpSessionConfigurator.class)
 public class ChatServer {
 	

@@ -60,14 +60,14 @@
         <ul>
             <li>
 	            <strong>科目：</strong>
-	            <a href="#" id="docsubAll" onclick="searchData('docsub','all','')">全部</a>
+	            <a href="#" id="docsubAll" onclick="searchData('docsub','','')">全部</a>
 	            <c:forEach  var="docsub" items="${ docSubs }" varStatus="status">
 		            <a href="#" id="${ el:urlEncodeToId(docsub) }" onclick="searchData('docsub','${ el:urlEncode(docsub) }','')">${ docsub }</a>
 		        </c:forEach>
             </li>
             <li>
 	            <strong>类型：</strong>
-	            <a href="#" id="doctypeAll" onclick="searchData('doctype','','all')">全部</a>
+	            <a href="#" id="doctypeAll" onclick="searchData('doctype','','')">全部</a>
 	            <c:forEach  var="doctype" items="${ docTypes }" varStatus="status">
 		            <a href="#" id="${ el:urlEncodeToId(doctype) }" onclick="searchData('doctype','','${ el:urlEncode(doctype) }')">${ doctype }</a>
 		        </c:forEach>

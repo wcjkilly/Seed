@@ -1,5 +1,8 @@
 package com.model;
 
+/*
+ * 学生信息，用户信息
+ */
 public class Student {
 	private String username;//用户名
 	private String cardid; //身份证号

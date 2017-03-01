@@ -1,5 +1,8 @@
 package com.model;
 
+/*
+ * 科目信息
+ */
 public class Subject {
 	private int subid;//科目id
 	private String sub;//科目名称

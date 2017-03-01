@@ -109,8 +109,8 @@ public class StudyCenterAction extends ActionSupport {
 		ActionContext.getContext().put("docTypes",docTypes);
 		
 		//获取满足条件的所有资料
-		String docSubString = (getDocsub()==null || "".equals(getDocsub())) ? "all" : getDocsub();
-		String docTypeString = (getDoctype()==null || "".equals(getDoctype())) ? "all" : getDoctype();
+		String docSubString = (getDocsub()==null || "".equals(getDocsub())) ? "" : getDocsub();
+		String docTypeString = (getDoctype()==null || "".equals(getDoctype())) ? "" : getDoctype();
 		//对查询字符串进行解码，因为URL中的中文字符可能是乱码
 		docSubString = URLDecoder.decode(docSubString, "utf-8");
 		docTypeString = URLDecoder.decode(docTypeString, "utf-8");
@@ -179,7 +179,8 @@ public class StudyCenterAction extends ActionSupport {
             String nowTime = sdf.format(new Date());
             System.out.println("文件成功上传到："+absolutePath);
             //资料上传成功后将文件记录插入数据库中
-            Boolean result = studyCenterService.saveDocument(getDocsub(),getDoctype(),getDocname(),nowTime,relativePath);
+            Document upDocTemp = new Document(getDocsub(),getDoctype(),getDocname(),nowTime,relativePath);
+            Boolean result = studyCenterService.saveDocument(upDocTemp);
             if(!result){
             	setMsg("文件上传成功，但将文件记录插入数据库失败");
             }

@@ -17,9 +17,8 @@ public class StudyCenterService {
 		return studyCenterDao.getDocSub();
 	}
 
-	public Boolean saveDocument(String docsub, String doctype, String docname,
-			String nowTime, String relativePath) {
-		return studyCenterDao.saveDocument(docsub, doctype, docname, nowTime, relativePath);
+	public Boolean saveDocument(Document upDocTemp) {
+		return studyCenterDao.saveDocument(upDocTemp);
 	}
 	
 	public List<Document> getAllDoc(String docSub,String docType) {

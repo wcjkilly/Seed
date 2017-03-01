@@ -1,5 +1,8 @@
 package com.model;
 
+/*
+ * 学生所在班级信息
+ */
 public class ClassInfo {
 
 	private String class_;//班级名字

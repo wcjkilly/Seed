@@ -1,5 +1,8 @@
 package com.model;
 
+/*
+ * 学生成绩视图(科目信息和学生成绩联合查询结果)
+ */
 public class ScoreView {
 	
 	private String username; //学生名字
