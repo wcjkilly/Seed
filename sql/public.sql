@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50552
 File Encoding         : 65001
 
-Date: 2017-02-22 18:46:58
+Date: 2017-03-01 09:03:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -120,6 +120,9 @@ INSERT INTO `score` VALUES ('xiaowang', '24', '98');
 INSERT INTO `score` VALUES ('xiaoming', '22', '88');
 INSERT INTO `score` VALUES ('xiaoming', '24', '79');
 INSERT INTO `score` VALUES ('xiaowang', '22', '90');
+INSERT INTO `score` VALUES ('xiaozhang', '22', '89');
+INSERT INTO `score` VALUES ('xiaozhang', '23', '91');
+INSERT INTO `score` VALUES ('xiaozhang', '24', '97');
 
 -- ----------------------------
 -- Table structure for `subinfo`
@@ -164,3 +167,4 @@ CREATE TABLE `userinfo` (
 -- ----------------------------
 INSERT INTO `userinfo` VALUES ('xiaoming', '123', '666666123456789012', '2013级数学13班', '贵阳', '数学', '男', '36763676', '班长', '2017-01-02 00:00:00', '12344566', '544333', '1');
 INSERT INTO `userinfo` VALUES ('xiaowang', '123', '66666666', '2013级英语1班', '成都', '英语', '女', '66666666', '文艺委员', '2013-09-01 08:00:00', '12366666', '333666', '2');
+INSERT INTO `userinfo` VALUES ('xiaozhang', '123', '66666678', '2013级数学13班', '上海', '数学', '男', '66666678', '副班长', '2016-12-01 09:01:05', '66666678', '544334', '1');

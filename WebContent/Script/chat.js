@@ -159,13 +159,14 @@ $(document).ready(function() {
         var g = evn.data;
         h();
         
+        var rec_msg = g.split(":",2)[1];
 		var i = "<div class='message clearfix'>" + "<div class='user-logo' style='float:right;border-radius: 50%;overflow: hidden;'>" + "<img src='" + c + "'/>"
 		+ "</div>" + "<div class='wrap-text' style='float:right;margin-right:10px;'>"  + "<div style='text-align:right'>" + 
-		g + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
+		rec_msg + "</div>" + "</div>" + "<div class='wrap-ri'>" + 
 		"<div clsss='clearfix' style='right: 88%;'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>";
 		
 		//将接收到的消息显示在对应用户的面板区间内
-		var msg_user = g.split(":")[0];
+		var msg_user = g.split(":",2)[0];
         console.log(msg_user);
         $(".chat03_content ul li").each(function(index){
         	temp_index = $(this).index() + 1;

@@ -31,7 +31,7 @@ public class ChatServer {
 	 * @throws IOException 
 	 */
 	public void sendMsgToUser(String msg) throws IOException {
-		String[] temp = msg.split("__####__");
+		String[] temp = msg.split("__####__",2);
 		for (ChatServer item : chatServerLists) {
 			if(temp[0]!=null && !"".equals(temp[0]) && temp[0].equals(item.username)){
 				item.session.getBasicRemote().sendText(this.username+":"+temp[1]);
