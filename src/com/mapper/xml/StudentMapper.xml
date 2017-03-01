@@ -37,4 +37,22 @@
 		select * from userinfo
 	</select>
 	
+	<select id="getUserAttendances" resultType="com.model.Attendance">
+		SELECT a.*, YEARWEEK(a.time) AS week FROM attendance AS a
+		<where>
+			<if test="username!=null and username!=''">
+				a.username = #{username}
+			</if>
+			<if test="attStart!=null and attStart!=''">
+				and a.time &gt;= #{attStart}
+			</if>
+			<if test="attEnd!=null and attEnd!=''">
+				and a.time &lt;= #{attEnd}
+			</if>
+			<if test="attWeek!=null and attWeek!=''">
+				and YEARWEEK(a.time) = #{attWeek}
+			</if>
+		</where>
+	</select>
+	
 </mapper>

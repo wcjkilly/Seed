@@ -8,6 +8,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 
+import com.model.Attendance;
 import com.model.ClassInfo;
 import com.model.Score;
 import com.model.ScoreView;
@@ -32,6 +33,18 @@ public class UserAction extends ActionSupport {
 	private String subStartTimeBegin;
 	private String subStartTimeEnd;
 	
+	//用于接收考勤查询参数
+	private String attendanceStartTime;
+	private String attendanceEndTime;
+	private String attendanceWeek;
+	
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 
 	public String getUsername() {
 		return username;
@@ -71,6 +84,30 @@ public class UserAction extends ActionSupport {
 
 	public void setSubStartTimeEnd(String subStartTimeEnd) {
 		this.subStartTimeEnd = subStartTimeEnd;
+	}
+
+	public String getAttendanceStartTime() {
+		return attendanceStartTime;
+	}
+
+	public void setAttendanceStartTime(String attendanceStartTime) {
+		this.attendanceStartTime = attendanceStartTime;
+	}
+
+	public String getAttendanceEndTime() {
+		return attendanceEndTime;
+	}
+
+	public void setAttendanceEndTime(String attendanceEndTime) {
+		this.attendanceEndTime = attendanceEndTime;
+	}
+
+	public String getAttendanceWeek() {
+		return attendanceWeek;
+	}
+
+	public void setAttendanceWeek(String attendanceWeek) {
+		this.attendanceWeek = attendanceWeek;
 	}
 
 	@Action(value = "userLogin", results = {
@@ -132,8 +169,14 @@ public class UserAction extends ActionSupport {
 			@Result(name = "success", location = "/MyInfo/attendence.jsp") })
 	
 	public String attendence() {
+		String username = (String) ActionContext.getContext().getSession().get("username");
+		String attStart = getAttendanceStartTime()==null ? "" : getAttendanceStartTime();
+		String attEnd = getAttendanceEndTime()==null ? "" : getAttendanceEndTime();
+		String attWeek = getAttendanceWeek()==null ? "" : getAttendanceWeek();
+		attWeek = attWeek.replaceAll("\\D", "");
 		
-		
+		List<Attendance> attendanceViews = userService.getUserAttendances(username, attStart, attEnd,attWeek);
+		ActionContext.getContext().put("attendanceViews",attendanceViews);
 		
 		return SUCCESS;
 		

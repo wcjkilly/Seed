@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
 	学生信息管理平台
@@ -8,6 +9,14 @@
     <script src="Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
     <script src="Script/Common.js" type="text/javascript"></script>
     <script src="Script/Data.js" type="text/javascript"></script>
+    <script type="text/javascript">
+	    function searchAttendance() {
+            var attendanceStartTime = $("#attendanceStartTime").val();
+            var attendanceEndTime = $("#attendanceEndTime").val();
+            var attendanceWeek = $("#attendanceWeek").val();
+            window.location = 'attendence.action?attendanceStartTime=' + attendanceStartTime + "&attendanceEndTime=" + attendanceEndTime + "&attendanceWeek=" + attendanceWeek;
+	    }
+    </script>
  	<style>
 	table td{
 		text-align:center;
@@ -21,9 +30,9 @@
 </div>
 <div class="cztable">
     	<div style="margin-bottom:20px">
-       		 <label>请选择日期 ： </label><input type="date"> - <input type="date">
-             <label for="week">请选择周数 ： </label><input type="week" id="week">
-         	<button style="height:28px;width: 50px;background-color: #39aa8e;margin: 0px 20px 0 30px;color:#FFF;border:none;border-radius:3px;cursor:pointer">确定</button>
+       		 <label>请选择日期 ： </label><input type="date" id="attendanceStartTime" name="attendanceStartTime" value="${ attendanceStartTime }"> - <input type="date" id="attendanceEndTime" name="attendanceEndTime" value="${ attendanceEndTime }">
+             <label for="week">请选择周数 ： </label><input type="week" id="attendanceWeek" name="attendanceWeek" value="${ attendanceWeek }" >
+         	<button onclick="searchAttendance()" style="height:28px;width: 50px;background-color: #39aa8e;margin: 0px 20px 0 30px;color:#FFF;border:none;border-radius:3px;cursor:pointer">确定</button>
         </div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -34,22 +43,16 @@
             <th width="16%">备注</th>
         </tr>
         
-        <tr style="height: 28px" class="tdbg" align="left">
-            <td width="5%">1</td>
-            <td width="12%">2015-01-15</td>
-            <td width="15%">2</td>
-            <td width="20%">正常</td>
-            <td width="16%">88</td>
-        </tr>
-        <tr style="height: 28px" class="tdbg" align="left">
-            <td width="5%">2</td>
-            <td width="12%">2015-01-15</td>
-            <td width="15%">3</td>
-            <td width="20%">正常</td>
-            <td width="16%">95</td>
-        </tr>
-        
-    </table>
+        <c:forEach  var="attendance" items="${ attendanceViews }" varStatus="status">
+        	<tr style="height: 28px" class="tdbg" align="left">
+	            <td width="5%">${ status.index+1}</td>
+	            <td width="12%">${ attendance.time }</td>
+	            <td width="15%">${ attendance.week }</td>
+	            <td width="20%">${ attendance.situation }</td>
+	            <td width="16%">${ attendance.comment }</td>
+	        </tr>
+		</c:forEach>
+      </table>
     </div>
 </body>
 </html>

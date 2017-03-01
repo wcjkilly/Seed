@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import com.model.Attendance;
 import com.model.ClassInfo;
 import com.model.ScoreView;
 import com.model.Student;
@@ -48,5 +49,15 @@ public interface StudentMapper {
 	 * @return 学生对象列表
 	 */
 	public List<Student> getAllUsers();
+	
+	/**
+	 * 获取个人考勤记录
+	 * @param username 用户名
+	 * @param attStart 开始时间
+	 * @param attEnd 结束时间
+	 * @param attWeek 年周数
+	 * @return
+	 */
+	public List<Attendance> getUserAttendances(@Param("username") String username, @Param("attStart")	String attStart, @Param("attEnd") String attEnd, @Param("attWeek") String attWeek);
 	
 }

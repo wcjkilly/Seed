@@ -14,6 +14,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.mapper.function.StudentMapper;
+import com.model.Attendance;
 import com.model.ClassInfo;
 import com.model.ScoreView;
 import com.model.Student;
@@ -84,6 +85,18 @@ public class UserDao {
 		try {
 			StudentMapper mapper = session.getMapper(StudentMapper.class);
 			list = mapper.getAllUsers();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+
+	public List<Attendance> getUserAttendances(String username,	String attStart, String attEnd, String attWeek) {
+		List<Attendance> list = new ArrayList<>();
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			StudentMapper mapper = session.getMapper(StudentMapper.class);
+			list = mapper.getUserAttendances(username, attStart, attEnd, attWeek);
 		} finally {
 			session.close();
 		}
