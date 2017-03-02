@@ -1,5 +1,8 @@
 package com.model;
 
+/*
+ * °à¼¶Ð¡×é
+ */
 public class ClassGroup {
 	
 	private int id;

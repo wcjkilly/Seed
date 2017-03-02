@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dao.ClassCenterDao;
 import com.model.ClassGroup;
+import com.model.Classfare;
 
 public class ClassCenterService {
 	
@@ -15,6 +16,15 @@ public class ClassCenterService {
 
 	public Boolean addGroup(ClassGroup group) {
 		return classCenterDao.addGroup(group);
+	}
+
+	public List<Classfare> getClassfares(String classid, String startTime,
+			String endTime) {
+		return classCenterDao.getClassfares(classid, startTime, endTime);
+	}
+
+	public Boolean addClassfare(Classfare classfare) {
+		return classCenterDao.addClassfare(classfare);
 	}
 
 }

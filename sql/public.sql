@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50552
 File Encoding         : 65001
 
-Date: 2017-03-02 11:16:22
+Date: 2017-03-02 17:03:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,6 +37,32 @@ INSERT INTO `attendance` VALUES ('3', 'xiaowang', '2017-03-01 22:40:03', '正常
 INSERT INTO `attendance` VALUES ('4', 'xiaowang', '2017-03-06 22:40:14', '正常', '100');
 INSERT INTO `attendance` VALUES ('5', 'xiaoming', '2017-03-01 22:40:33', '正常', '100');
 INSERT INTO `attendance` VALUES ('6', 'xiaoming', '2017-03-14 22:40:54', '缺席', '60');
+
+-- ----------------------------
+-- Table structure for `classfare`
+-- ----------------------------
+DROP TABLE IF EXISTS `classfare`;
+CREATE TABLE `classfare` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `classid` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `activity` varchar(32) NOT NULL,
+  `expend` int(11) DEFAULT NULL,
+  `income` int(11) DEFAULT NULL,
+  `comment` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of classfare
+-- ----------------------------
+INSERT INTO `classfare` VALUES ('1', '1', '2017-03-01 14:29:25', '团队建设', '2000', '0', '无');
+INSERT INTO `classfare` VALUES ('2', '1', '2017-03-02 14:30:13', '班级聚餐', '1000', '0', '无');
+INSERT INTO `classfare` VALUES ('3', '1', '2017-03-08 14:30:16', '优秀班级奖励', '0', '3000', '无');
+INSERT INTO `classfare` VALUES ('4', '2', '2017-03-01 14:30:40', '班级旅游', '3000', '0', '无');
+INSERT INTO `classfare` VALUES ('5', '2', '2017-03-14 14:31:06', '文化墙布置', '300', '0', '无');
+INSERT INTO `classfare` VALUES ('6', '1', '2017-03-31 00:00:00', '班级旅游', '2400', '0', '食宿等');
+INSERT INTO `classfare` VALUES ('7', '2', '2017-03-18 00:00:00', '春游', '1200', '0', '车费+午饭');
 
 -- ----------------------------
 -- Table structure for `classgroup`
