@@ -18,5 +18,6 @@
 		<!-- 加载映射文件  -->
 		<mapper resource="com/mapper/xml/StudentMapper.xml" />
 		<mapper resource="com/mapper/xml/StudyCenterMapper.xml" />
+		<mapper resource="com/mapper/xml/ClassCenterMapper.xml" />
 	</mappers>
 </configuration>

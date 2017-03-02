@@ -15,6 +15,7 @@ public class Student {
 	private String address;//联系地址
 	private String tel;//手机号
 	private String qq;//qq号
+	private String classid;//班级ID
 	public String getUsername() {
 		return username;
 	}
@@ -80,6 +81,12 @@ public class Student {
 	}
 	public void setQq(String qq) {
 		this.qq = qq;
+	}
+	public String getClassid() {
+		return classid;
+	}
+	public void setClassid(String classid) {
+		this.classid = classid;
 	}
 	
 }

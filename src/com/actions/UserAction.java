@@ -173,6 +173,7 @@ public class UserAction extends ActionSupport {
 		String attStart = getAttendanceStartTime()==null ? "" : getAttendanceStartTime();
 		String attEnd = getAttendanceEndTime()==null ? "" : getAttendanceEndTime();
 		String attWeek = getAttendanceWeek()==null ? "" : getAttendanceWeek();
+		//原始年周格式：2017-W02，表示2017年第2周，转换成只包含数字的格式：201702
 		attWeek = attWeek.replaceAll("\\D", "");
 		
 		List<Attendance> attendanceViews = userService.getUserAttendances(username, attStart, attEnd,attWeek);

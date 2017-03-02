@@ -10,17 +10,65 @@ Target Server Type    : MYSQL
 Target Server Version : 50552
 File Encoding         : 65001
 
-Date: 2017-03-01 09:03:26
+Date: 2017-03-02 11:16:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `attendance`
+-- ----------------------------
+DROP TABLE IF EXISTS `attendance`;
+CREATE TABLE `attendance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `situation` varchar(32) NOT NULL,
+  `comment` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of attendance
+-- ----------------------------
+INSERT INTO `attendance` VALUES ('1', 'xiaozhang', '2017-01-11 08:05:31', '正常', '100');
+INSERT INTO `attendance` VALUES ('2', 'xiaozhang', '2017-01-20 10:06:23', '正常', '100');
+INSERT INTO `attendance` VALUES ('3', 'xiaowang', '2017-03-01 22:40:03', '正常', '99');
+INSERT INTO `attendance` VALUES ('4', 'xiaowang', '2017-03-06 22:40:14', '正常', '100');
+INSERT INTO `attendance` VALUES ('5', 'xiaoming', '2017-03-01 22:40:33', '正常', '100');
+INSERT INTO `attendance` VALUES ('6', 'xiaoming', '2017-03-14 22:40:54', '缺席', '60');
+
+-- ----------------------------
+-- Table structure for `classgroup`
+-- ----------------------------
+DROP TABLE IF EXISTS `classgroup`;
+CREATE TABLE `classgroup` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `classid` int(11) NOT NULL,
+  `type` varchar(32) NOT NULL,
+  `manager` varchar(32) NOT NULL,
+  `members` varchar(128) NOT NULL,
+  `setuptime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `comment` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of classgroup
+-- ----------------------------
+INSERT INTO `classgroup` VALUES ('1', '2', '班会', '小王', '小李，小张，小江', '2017-03-28 09:40:50', '无');
+INSERT INTO `classgroup` VALUES ('2', '2', '校庆活动', '小李', '小张，小王', '2017-03-14 09:41:36', '无');
+INSERT INTO `classgroup` VALUES ('3', '1', '舞会', '小月', '小李，小琴，小娇', '2017-03-14 09:42:22', '无');
+INSERT INTO `classgroup` VALUES ('4', '1', '联谊', '小琴', '小月，小梦，李四', '2017-03-13 09:43:02', '无');
+INSERT INTO `classgroup` VALUES ('5', '2', '班会2', '李四', '王五，张三，赵六', '2017-03-03 00:00:00', '带钱');
+INSERT INTO `classgroup` VALUES ('6', '1', '班会', '张三', '王五，张三，赵六', '2017-03-01 00:00:00', '投票竞选班干');
 
 -- ----------------------------
 -- Table structure for `classinfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `classinfo`;
 CREATE TABLE `classinfo` (
-  `class` varchar(64) DEFAULT '',
+  `class_` varchar(64) DEFAULT '',
   `classqq` varchar(64) DEFAULT '',
   `classflag` varchar(64) DEFAULT '',
   `school` varchar(64) DEFAULT '',
@@ -42,12 +90,14 @@ INSERT INTO `classinfo` VALUES ('2013级英语1班', '12348765', 'say hello to w
 -- ----------------------------
 DROP TABLE IF EXISTS `document`;
 CREATE TABLE `document` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `documentsub` varchar(64) NOT NULL,
   `documenttype` varchar(64) NOT NULL,
   `documentname` varchar(64) NOT NULL,
   `uploadtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `path` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `path` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of document
@@ -148,7 +198,7 @@ INSERT INTO `subinfo` VALUES ('22', '大学物理', '2016-09-01 15:15:17', '5');
 DROP TABLE IF EXISTS `userinfo`;
 CREATE TABLE `userinfo` (
   `username` varchar(64) DEFAULT '',
-  `passwd` varchar(64) DEFAULT '',
+  `password` varchar(64) DEFAULT '',
   `cardid` varchar(64) DEFAULT '',
   `class_` varchar(64) DEFAULT '',
   `address` varchar(64) DEFAULT '',
@@ -156,7 +206,7 @@ CREATE TABLE `userinfo` (
   `sex` varchar(64) DEFAULT '',
   `qq` varchar(64) DEFAULT '',
   `position` varchar(64) DEFAULT '',
-  `time` timestamp NULL DEFAULT NULL,
+  `timeToSch` timestamp NULL DEFAULT NULL,
   `tel` varchar(64) DEFAULT '',
   `sid` varchar(64) DEFAULT '',
   `classid` int(11) NOT NULL
