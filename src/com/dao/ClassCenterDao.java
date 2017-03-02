@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.mapper.function.ClassCenterMapper;
 import com.model.ClassGroup;
 import com.model.Classfare;
+import com.model.Cource;
 import com.utils.DBHelper;
 
 public class ClassCenterDao {
@@ -63,6 +64,18 @@ public class ClassCenterDao {
 			session.close();
 		}
 		return classfare.getId()>0;
+	}
+
+	public List<Cource> getClassCources(String classid) {
+		List<Cource> list = new ArrayList<>();
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			ClassCenterMapper mapper = session.getMapper(ClassCenterMapper.class);
+			list = mapper.getClassCources(classid);
+		} finally {
+			session.close();
+		}
+		return list;
 	}
 
 }

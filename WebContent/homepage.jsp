@@ -96,7 +96,7 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
                     </div>
                     <div class="cdlist">
                         <div>
-                            <a href="book.action" target="contentshow">班级课程表</a></div>
+                            <a href="course.action" target="contentshow">班级课程表</a></div>
                         <div>
                             <a href="classfare.action" target="contentshow">班级班费</a></div>
                         <div>

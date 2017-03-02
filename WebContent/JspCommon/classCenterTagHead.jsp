@@ -20,7 +20,7 @@
 </script>
 
 <ul id="ulStudMsgHeadTab">
-    <li><a class="tab2" href="book.action">班级课程表</a></li>
+    <li><a class="tab2" href="course.action">班级课程表</a></li>
     <li><a class="tab2" href="classfare.action">班级班费</a></li>
     <li><a class="tab2" href="vote.action">投票</a></li>
     <li><a class="tab2" href="group.action">小组</a></li>

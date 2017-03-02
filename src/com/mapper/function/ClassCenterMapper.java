@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.model.ClassGroup;
 import com.model.Classfare;
+import com.model.Cource;
 
 public interface ClassCenterMapper {
 
@@ -36,5 +37,12 @@ public interface ClassCenterMapper {
 	 * @param classfare 班级班费实例
 	 */
 	public void addClassfare(Classfare classfare);
+
+	/**
+	 * 获取班级课程列表
+	 * @param classid 班级ID
+	 * @return 课程列表
+	 */
+	public List<Cource> getClassCources(String classid);
 
 }

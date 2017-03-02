@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50552
 File Encoding         : 65001
 
-Date: 2017-03-02 17:03:37
+Date: 2017-03-02 21:14:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -112,6 +112,49 @@ INSERT INTO `classinfo` VALUES ('2013级数学13班', '12345678', '你会写笛�
 INSERT INTO `classinfo` VALUES ('2013级英语1班', '12348765', 'say hello to world!', '北京大学', 'Mr.Li', '66666656', '2017-02-07 10:09:47', '12', '2');
 
 -- ----------------------------
+-- Table structure for `cource`
+-- ----------------------------
+DROP TABLE IF EXISTS `cource`;
+CREATE TABLE `cource` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `classid` int(11) NOT NULL COMMENT '课程ID',
+  `weekday` int(11) NOT NULL COMMENT '周几，0：周一，1：周二，以此类推',
+  `daydivide` int(11) NOT NULL COMMENT '每天划分成六节课，0：上午第1节课，1：上午第二节，以此类推',
+  `courcename` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cource
+-- ----------------------------
+INSERT INTO `cource` VALUES ('1', '1', '0', '0', '英语（一）');
+INSERT INTO `cource` VALUES ('2', '1', '0', '1', '高数（一）');
+INSERT INTO `cource` VALUES ('3', '1', '0', '3', '马克思原理');
+INSERT INTO `cource` VALUES ('4', '1', '1', '1', '毛概');
+INSERT INTO `cource` VALUES ('5', '1', '1', '2', '大物（一）');
+INSERT INTO `cource` VALUES ('6', '1', '1', '3', '大学生心理健康');
+INSERT INTO `cource` VALUES ('7', '1', '2', '0', '英语（一）');
+INSERT INTO `cource` VALUES ('8', '1', '2', '1', '茶文化');
+INSERT INTO `cource` VALUES ('9', '1', '2', '2', 'C语言');
+INSERT INTO `cource` VALUES ('10', '1', '2', '3', '数据结构');
+INSERT INTO `cource` VALUES ('11', '1', '2', '4', 'C语言实验');
+INSERT INTO `cource` VALUES ('12', '1', '3', '1', '数据结构');
+INSERT INTO `cource` VALUES ('13', '1', '3', '3', '操作系统');
+INSERT INTO `cource` VALUES ('14', '1', '4', '2', '线性代数');
+INSERT INTO `cource` VALUES ('15', '1', '4', '3', '欧美文化解读');
+INSERT INTO `cource` VALUES ('16', '2', '0', '1', '概率论');
+INSERT INTO `cource` VALUES ('17', '2', '0', '2', 'Java基础');
+INSERT INTO `cource` VALUES ('18', '2', '0', '4', '数据分析');
+INSERT INTO `cource` VALUES ('19', '2', '1', '2', '算法导论');
+INSERT INTO `cource` VALUES ('20', '2', '2', '0', '计算机图形学');
+INSERT INTO `cource` VALUES ('21', '2', '2', '1', '汇编语言');
+INSERT INTO `cource` VALUES ('22', '2', '3', '0', '形势与政策');
+INSERT INTO `cource` VALUES ('23', '2', '3', '1', '毛概');
+INSERT INTO `cource` VALUES ('24', '2', '3', '4', 'Java上机实验');
+INSERT INTO `cource` VALUES ('25', '2', '4', '0', '机器学习');
+INSERT INTO `cource` VALUES ('26', '2', '4', '1', '数据分析');
+
+-- ----------------------------
 -- Table structure for `document`
 -- ----------------------------
 DROP TABLE IF EXISTS `document`;
@@ -123,7 +166,7 @@ CREATE TABLE `document` (
   `uploadtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `path` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of document

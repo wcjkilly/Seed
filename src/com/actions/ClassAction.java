@@ -10,6 +10,7 @@ import org.apache.struts2.convention.annotation.Results;
 import com.model.ClassInfo;
 import com.model.ClassGroup;
 import com.model.Classfare;
+import com.model.Cource;
 import com.model.Student;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -110,15 +111,19 @@ public class ClassAction extends ActionSupport {
 	}
 	
 	
-	@Action(value = "book", results = {
-			@Result(name = "success", location = "/EducationCenter/Book.jsp") })
+	@Action(value = "course", results = {
+			@Result(name = "success", location = "/EducationCenter/Course.jsp") })
 	
-	public String book() {
+	public String course() {
+		String username = (String) ActionContext.getContext().getSession().get("username");
 		
-		
-		
+		Student student = userService.getUserInfo(username);
+		List<Cource> cources = classCenterService.getClassCources(student.getClassid());
+		/*for(Cource c:cources){
+			System.out.println(c);
+		}*/
+		ActionContext.getContext().put("cources",cources);
 		return SUCCESS;
-		
 	}
 	
 	@Action(value = "classfare", results = {
