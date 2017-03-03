@@ -31,14 +31,7 @@
         //退出
         function loginOut() {
             if (confirm("确定退出吗？")) {
-                StudentLogin.loginOut(function (data) {
-                    if (data == "true") {
-                        window.location = "login.jsp";
-                    }
-                    else {                 
-						return false;
-                    }
-                });
+            	window.location = "userLogout.action";
             }
         }
     </script>  
@@ -65,8 +58,7 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
                 </div>
                 <div class="topxx">
                     	学员：${ sessionScope.username }，欢迎您！ <a href="userInfo.action" target="contentshow">我的信息</a> <a href="systemMsge.action" target="contentshow">
-                        通知</a> <a href="User/Account/ChangePasswd.jsp" target="contentshow">密码修改</a> <a onclick="loginOut()"
-                            href="login.jsp">安全退出</a>
+                        通知</a> <a href="User/Account/ChangePasswd.jsp" target="contentshow">密码修改</a> <a onclick="loginOut()" href="#">安全退出</a>
                 </div>
                 <div id="time"></div>
             </div>

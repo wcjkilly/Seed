@@ -31,5 +31,12 @@ public class UserService {
 	public List<Attendance> getUserAttendances(String username,	String attStart, String attEnd, String attWeek) {
 		return userDao.getUserAttendances(username, attStart, attEnd,attWeek);
 	}
+	public boolean userChangePwd(String username, String oldPwd, String newPwd) {
+		if(userDao.login(username, oldPwd)){
+			userDao.changePwd(username, newPwd);
+			return true;
+		}
+		return false;
+	}
 	
 }

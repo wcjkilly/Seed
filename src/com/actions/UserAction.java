@@ -128,6 +128,16 @@ public class UserAction extends ActionSupport {
 		}
 	}
 	
+	@Action(value = "userLogout", results = {
+			@Result(name = "success", location = "/login.jsp") })
+	
+	public String logout() {
+		String username = (String) ActionContext.getContext().getSession().get("username");
+		System.out.println("ÓÃ»§×¢Ïú£º"+username);
+		ActionContext.getContext().getSession().remove("username");
+		return SUCCESS;
+	}
+	
 	@Action(value = "userInfo", results = {
 			@Result(name = "success", location = "/MyInfo/Index.jsp") })
 	

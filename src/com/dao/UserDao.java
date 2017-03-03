@@ -39,6 +39,18 @@ public class UserDao {
 		return result;
 	}
 	
+	//修改密码
+	public void changePwd(String username, String newPwd) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			StudentMapper mapper = session.getMapper(StudentMapper.class);
+			mapper.changePwd(username, newPwd);
+			session.commit();
+		} finally {
+			session.close();
+		}
+	}
+	
 	//获取个人信息
 	public Student getUserInfo(String username) {
 		Student student = null;
@@ -102,5 +114,5 @@ public class UserDao {
 		}
 		return list;
 	}
-	
+
 }

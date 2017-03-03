@@ -8,6 +8,10 @@
 		select * from userinfo where username = #{username} and password = #{password}
 	</select>
 	
+	<update id="changePwd">
+		update userinfo set password = #{newPwd} where username = #{username}
+	</update>
+	
 	<select id="getUserInfo" resultType="com.model.Student">
 		select * from userinfo where username = #{username}
 	</select>

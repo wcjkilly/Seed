@@ -59,5 +59,12 @@ public interface StudentMapper {
 	 * @return
 	 */
 	public List<Attendance> getUserAttendances(@Param("username") String username, @Param("attStart")	String attStart, @Param("attEnd") String attEnd, @Param("attWeek") String attWeek);
+
+	/**
+	 * 修改用户密码
+	 * @param username 用户名
+	 * @param newPwd 新密码
+	 */
+	public void changePwd(@Param("username")String username, @Param("newPwd") String newPwd);
 	
 }
