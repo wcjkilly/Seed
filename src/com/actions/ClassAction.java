@@ -18,18 +18,21 @@ import com.service.ClassCenterService;
 import com.service.UserService;
 
 public class ClassAction extends ActionSupport {
-	//用于调用业务层的方法
+	//用于调用业务层的方法，公共
 	private ClassCenterService classCenterService  = new ClassCenterService();
 	private UserService userService  = new UserService();
+	
 	//用于接收查询班级班费的时间参数
 	private String classfarestarttime;
 	private String classfareendtime;
+	
 	//用于接收添加小组时的信息
 	private String grouptype;
 	private String groupmanager;
 	private String groupmembers;
 	private String groupsetuptime;
 	private String groupcomment;
+	
 	//用于接收添加班费时的信息
 	private String classfaretime;
 	private String classfareactivity;
@@ -110,7 +113,7 @@ public class ClassAction extends ActionSupport {
 		this.classfarecomment = classfarecomment;
 	}
 	
-	
+	//班级中心-->查看班级课程表
 	@Action(value = "course", results = {
 			@Result(name = "success", location = "/EducationCenter/Course.jsp") })
 	
@@ -126,6 +129,7 @@ public class ClassAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	//班级中心-->查看班级班费
 	@Action(value = "classfare", results = {
 			@Result(name = "success", location = "/EducationCenter/classfare.jsp") })
 	
@@ -140,6 +144,7 @@ public class ClassAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	//班级中心-->添加班级班费
 	@Action(value = "addclassfare", results = {
 			@Result(name = "success", location = "/EducationCenter/classfare.jsp") })
 	
@@ -159,7 +164,7 @@ public class ClassAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	
+	//班级中心-->查看班级小组
 	@Action(value = "group", results = {
 			@Result(name = "success", location = "/EducationCenter/group.jsp") })
 	
@@ -172,6 +177,7 @@ public class ClassAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	//班级中心-->添加班级小组
 	@Action(value = "addgroup", results = {
 			@Result(name = "success", location = "/EducationCenter/group.jsp") })
 	
@@ -193,6 +199,7 @@ public class ClassAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	//班级中心-->投票
 	@Action(value = "vote", results = {
 			@Result(name = "success", location = "/EducationCenter/vote.jsp") })
 	

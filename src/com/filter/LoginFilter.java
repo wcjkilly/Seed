@@ -29,9 +29,11 @@ public class LoginFilter implements Filter{
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		String uri = request.getRequestURI();
 		System.out.println("访问URI:"+uri);
+		//如果进行登录操作则不作处理直接放行
 		if(uri.endsWith("userLogin.action")){
 			chain.doFilter(servletRequest, servletResponse);
 		}else{
+			//执行非登录操作时验证session中的值是否合法，合法则放行，不合法则重定向到login.jsp
 			String username = (String) request.getSession().getAttribute("username");
 			if(username!=null && !"".equals(username)){
 				chain.doFilter(servletRequest, servletResponse);

@@ -103,6 +103,14 @@ public class UserDao {
 		return list;
 	}
 
+	/**
+	 * 获取学生考勤信息
+	 * @param username 用户名
+	 * @param attStart 开始时间
+	 * @param attEnd 结束时间
+	 * @param attWeek 第X年的第Y周
+	 * @return
+	 */
 	public List<Attendance> getUserAttendances(String username,	String attStart, String attEnd, String attWeek) {
 		List<Attendance> list = new ArrayList<>();
 		SqlSession session = sqlSessionFactory.openSession();

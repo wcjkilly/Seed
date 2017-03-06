@@ -5,13 +5,13 @@ package com.model;
  */
 public class ClassGroup {
 	
-	private int id;
-	private int classid;
-	private String type;
-	private String manager;
-	private String members;
-	private String setuptime;
-	private String comment;
+	private int id;//id
+	private int classid;//所属班级id
+	private String type;//小组类型
+	private String manager;//组长
+	private String members;//小组成员
+	private String setuptime;//成立时间
+	private String comment;//备注
 	
 	public int getId() {
 		return id;

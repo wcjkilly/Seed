@@ -5,11 +5,11 @@ package com.model;
  */
 public class Cource {
 	
-	private int id;
-	private int classid;
-	private int weekday;
-	private int daydivide;
-	private String courcename;
+	private int id;//id
+	private int classid;//班级id
+	private int weekday;//周几，用0~6表示周一到周日
+	private int daydivide;//第几节课，用0~5表示第一节课到第六节课
+	private String courcename;//课程名称
 	
 	public int getId() {
 		return id;

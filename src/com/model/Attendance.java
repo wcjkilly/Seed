@@ -5,12 +5,12 @@ package com.model;
  */
 public class Attendance {
 	
-	private int id;
-	private String username;
-	private String week;
-	private String time;
-	private String situation;
-	private String comment;
+	private int id;//id
+	private String username;//用户名
+	private String week;//属于本年度的第几周
+	private String time;//时间
+	private String situation;//考勤情况结果
+	private String comment;//备注
 	
 	public int getId() {
 		return id;

@@ -46,6 +46,10 @@ public class AjaxAction extends ActionSupport{
 		this.changePwdRS = changePwdRS;
 	}
 
+	/**
+	 * 获取所有用户列表
+	 * @return 所有用户的列表，以json格式返回
+	 */
 	@Action(value="chatAllUsers",results={
 			@Result(name="allusers", type="json")
 	})
@@ -54,6 +58,10 @@ public class AjaxAction extends ActionSupport{
 		return "allusers";
 	} 
 	
+	/**
+	 * 修改用户密码
+	 * @return 如果修改成功则返回true，否则返回false
+	 */
 	@Action(value="userChangePwd",results={
 			@Result(name="result", type="json")
 	})

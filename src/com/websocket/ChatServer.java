@@ -13,7 +13,11 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-//在线聊天服务器类，基于WebSocket实现
+/**
+ * 在线聊天服务器类，基于WebSocket实现
+ * @author zhongshan.zhang
+ *
+ */
 @ServerEndpoint(value="/websocket",configurator=GetHttpSessionConfigurator.class)
 public class ChatServer {
 	
@@ -28,7 +32,7 @@ public class ChatServer {
 
 	/**
 	 * 发送消息给某个用户
-	 * @param msg 
+	 * @param msg 消息格式：接收人用户名+"__####__"+消息内容
 	 * @throws IOException 
 	 */
 	public void sendMsgToUser(String msg) throws IOException {
@@ -40,6 +44,7 @@ public class ChatServer {
 		}
 	}
 
+	//客户端连接时进行初始化
 	@OnOpen
 	public void onopen(Session session, EndpointConfig config) {
 		this.session = session;

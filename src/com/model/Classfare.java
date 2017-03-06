@@ -5,13 +5,13 @@ package com.model;
  */
 public class Classfare {
 	
-	private int id;
-	private int classid;
-	private String time;
-	private String activity;
-	private int expend;
-	private int income;
-	private String comment;
+	private int id;//id
+	private int classid;//所属班级id
+	private String time;//时间
+	private String activity;//活动
+	private int expend;//支出
+	private int income;//收入
+	private String comment;//备注
 	
 	public int getId() {
 		return id;

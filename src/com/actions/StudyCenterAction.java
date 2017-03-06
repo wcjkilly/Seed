@@ -44,62 +44,49 @@ public class StudyCenterAction extends ActionSupport {
 	public String getDocsub() {
 		return docsub;
 	}
-
 	public void setDocsub(String docsub) {
 		this.docsub = docsub;
 	}
-
 	public String getDoctype() {
 		return doctype;
 	}
-
 	public void setDoctype(String doctype) {
 		this.doctype = doctype;
 	}
-
 	public String getDocname() {
 		return docname;
 	}
-
 	public void setDocname(String docname) {
 		this.docname = docname;
 	}
-
 	public File getUpload() {
 		return upload;
 	}
-
 	public void setUpload(File upload) {
 		this.upload = upload;
 	}
-
 	public String getMsg() {
 		return msg;
 	}
-
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-
 	public String getUploadFileName() {
 		return uploadFileName;
 	}
-
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
 	}
-
 	public String getUploadContentType() {
 		return uploadContentType;
 	}
-
 	public void setUploadContentType(String uploadContentType) {
 		this.uploadContentType = uploadContentType;
 	}
 
+	//学习中心-->查看所有资料列表
 	@Action(value = "studentMaterial", results = {
 			@Result(name = "success", location = "/OnlineTeaching/StudentMaterial.jsp") })
-	
 	public String studentMaterial() throws UnsupportedEncodingException {
 		
 		//获取资料科目和类型信息
@@ -122,9 +109,9 @@ public class StudyCenterAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	//学习中心-->资料上传页面显示
 	@Action(value = "studentStudyRecordList", results = {
 			@Result(name = "success", location = "/OnlineTeaching/StudentStudyRecordList.jsp") })
-	
 	public String studentStudyRecordList() {
 		//获取资料科目和类型信息
 		List<String> docSubs = studyCenterService.getDocSub();
@@ -135,13 +122,13 @@ public class StudyCenterAction extends ActionSupport {
 		
 	}
 	
+	//学习中心-->执行资料上传操作
 	@Action(value = "studentUploadFile", results = {
 			@Result(name = "success", location = "/OnlineTeaching/StudentStudyRecordList.jsp") })
-	
 	public String studentUploadFile() {
-//		System.out.println(getDocname());
-//		System.out.println(getDocsub());
-//		System.out.println(getDoctype());
+		//System.out.println(getDocname());
+		//System.out.println(getDocsub());
+		//System.out.println(getDoctype());
 		//验证上传表单字段是否合法
 		if( getUpload()==null 
 				|| getDocsub()==null || "".equals(getDocsub()) 
